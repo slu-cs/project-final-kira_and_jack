@@ -9,6 +9,7 @@ const router = express.Router();
 router.get('/shows', shows.index);
 router.get('/shows/:date', shows.retrieve);
 router.get('/open_mics', open_mics.index);
+router.get('/open_mics/:date', open_mics.retrieve);
 
 // Export the router
 module.exports = router;
