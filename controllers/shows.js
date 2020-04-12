@@ -13,7 +13,7 @@ module.exports.retrieve = function(request, response, next){
     query.exec().
         then(function(show) {
             if (show.length !== 0){
-                response.send(show[0]);
+                response.render('shows/show', {show: show[0]});
             }
             else {
                 next(); // sorry no show on that day :(
