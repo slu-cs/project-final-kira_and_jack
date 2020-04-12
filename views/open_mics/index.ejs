@@ -3,25 +3,24 @@
   <%- include('../head'); -%>
   <body>
     <%- include('../navbar', {active: 'open_mics'}); -%>
-    <main class="p-3">
-      <table class="table">
-        <thead>
-          <tr>
-            <th class="border-0"><a href="open_mics" class="btn <%= (order === 'name') ? 'btn-dark' : 'btn-primary' -%>">Name</a></th>
-            <th class="border-0"><a href="open_mics?sort=act" class="btn <%= (order === 'act') ? 'btn-dark' : 'btn-primary' -%>">Act</a></th>
-            <th class="border-0"><a href="open_mics?sort=date" class="btn <%= (order === 'date') ? 'btn-dark' : 'btn-primary' -%>">Date</a></th>
-          </tr>
-        </thead>
-        <tbody>
-          <%_ for (const event of events) { -%>
-            <tr>
-              <td><a href="/open_mics/<%= event.name -%>"><%= event.name -%></a></td>
-              <td><%= event.act -%></td>
-              <td><%= event.date -%></td>
-            </tr>
-          <%_ } -%>
-        </tbody>
-      </table>
-    </main>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-auto p-3 border-right">
+          <nav class="nav nav-pills flex-column">
+            <%_ for (const event of events) { -%>
+              <%_ const status = (date.date === event.date) ? 'active bg-dark' : 'inactive'; -%>
+              <a href="/open_mics/<%= event.date -%>" class="nav-item nav-link <%= status -%>"><%= event.date -%></a>
+            <%_ } -%>
+          </nav>
+        </div>
+        <div class="col">
+          <main class="p-3">
+            <h2><%= date.date -%></h2>
+            <p><%= date.act -%></p>
+            
+          </main>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
