@@ -2,14 +2,14 @@
 <html>
   <%- include('../head'); -%>
   <body>
-    <%- include('../navbar', {active: 'events'}); -%>
+    <%- include('../navbar', {active: 'open_mics'}); -%>
     <main class="p-3">
       <table class="table">
         <thead>
           <tr>
-            <th class="border-0"><a href="open_mics/" class="btn <%= (order === 'events') ? 'btn-dark' : 'btn-primary' -%>">Name</a></th>
-            <th class="border-0"><a href="/acts" class="btn <%= (order === 'events') ? 'btn-dark' : 'btn-primary' -%>">Act</a></th>
-            <th class="border-0"><a href="/date" class="btn <%= (order === 'events') ? 'btn-dark' : 'btn-primary' -%>">Date</a></th>
+            <th class="border-0"><a href="open_mics" class="btn <%= (order === 'name') ? 'btn-dark' : 'btn-primary' -%>">Name</a></th>
+            <th class="border-0"><a href="open_mics?sort=act" class="btn <%= (order === 'act') ? 'btn-dark' : 'btn-primary' -%>">Act</a></th>
+            <th class="border-0"><a href="open_mics?sort=date" class="btn <%= (order === 'date') ? 'btn-dark' : 'btn-primary' -%>">Date</a></th>
           </tr>
         </thead>
         <tbody>
