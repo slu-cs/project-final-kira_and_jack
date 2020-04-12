@@ -19,12 +19,12 @@ const shows = [
 
 // Model a collection of sections
 const open_mics = [
-  new OpenMic({date:new Date('April 22 2020 21:00:00'), name: 'Natalie Pontikes', act: 'Singer with violin'}),
-  new OpenMic({date:new Date('April 22 2020 21:00:00'), name: 'Riley Doyle', act: 'Singer with guitar'}),
-  new OpenMic({date:new Date('April 22 2020 21:00:00'), name: 'The Twelve Steps', act: '3 Piece Rock Band'}),
-  new OpenMic({date:new Date('April 22 2020 21:00:00'), name: 'HUAC', act: 'Rock Band with Keys'}),
-  new OpenMic({date:new Date('May 6 2020 21:00:00'), name: 'Jessie Meyer', act: 'Singer with guitar'}),
-  new OpenMic({date:new Date('May 6 2020 21:00:00'), name: 'Will Von Mehren', act: 'Spoken word'}),
+  new OpenMic({date: '04-22-20', time:'10:00 PM', name: 'Natalie Pontikes', act: 'Singer with violin'}),
+  new OpenMic({date: '04-22-20',time:'10:00 PM', name: 'Riley Doyle', act: 'Singer with guitar'}),
+  new OpenMic({date:'04-22-20',time:'10:00 PM', name: 'The Twelve Steps', act: '3 Piece Rock Band'}),
+  new OpenMic({date:'04-22-20',time:'10:00 PM', name: 'HUAC', act: 'Rock Band with Keys'}),
+  new OpenMic({date:'05-06-20',time:'10:00 PM', name: 'Jessie Meyer', act: 'Singer with guitar'}),
+  new OpenMic({date:'05-06-20',time:'10:00 PM', name: 'Will Von Mehren', act: 'Spoken word'}),
 
 ];
 
