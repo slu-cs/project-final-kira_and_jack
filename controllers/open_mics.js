@@ -14,10 +14,11 @@ module.exports.retrieve = function(request, response, next) {
   ];
 
   Promise.all(queries).then(function([show, events]) {
-    if (show) {
+    if (show.length > 0) {
+      console.log(show)
       response.render('open_mics/index', {show: show, events: events});
     } else {
-      next(); // No such course
+      next(); 
     }
   }).catch(error => next(error));
 };
