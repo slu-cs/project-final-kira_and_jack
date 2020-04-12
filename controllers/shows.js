@@ -4,7 +4,7 @@ module.exports.index = function(request, response, next) {
   const order = request.query.sort || 'name'; // Default to sort by course
 
   Shows.find().sort(order)
-    .then(names => response.render('shows/index', {names: names, order: order}))
+    .then(shows => response.render('shows/index', {shows: shows, order: order}))
     .catch(error => next(error));
 };
 
