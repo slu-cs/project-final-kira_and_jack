@@ -7,17 +7,17 @@
       <table class="table">
         <thead>
           <tr>
-            <th class="border-0"><a href="open_mics/names" class="btn <%= (order === 'names') ? 'btn-dark' : 'btn-primary' -%>">Name</a></th>
-            <th class="border-0"><a href="open_mics/description" class="btn <%= (order === 'descprtions') ? 'btn-dark' : 'btn-primary' -%>">Description</a></th>
-            <th class="border-0"><a href="open_mics/" class="btn <%= (order === 'dates') ? 'btn-dark' : 'btn-primary' -%>">Date</a></th>
+            <th class="border-0"><a href="open_mics/" class="btn <%= (order === 'events') ? 'btn-dark' : 'btn-primary' -%>">Name</a></th>
+            <th class="border-0"><a href="/acts" class="btn <%= (order === 'events') ? 'btn-dark' : 'btn-primary' -%>">Act</a></th>
+            <th class="border-0"><a href="/date" class="btn <%= (order === 'events') ? 'btn-dark' : 'btn-primary' -%>">Date</a></th>
           </tr>
         </thead>
         <tbody>
-          <%_ for (const name of names) { -%>
+          <%_ for (const event of events) { -%>
             <tr>
-              <td><a href="/open_mics/<%= name.act -%>"><%= name.name -%></a></td>
-              <td><%= name.act -%></td>
-              <td><%= name.date -%></td>
+              <td><a href="/open_mics/<%= event.name -%>"><%= event.name -%></a></td>
+              <td><%= event.act -%></td>
+              <td><%= event.date -%></td>
             </tr>
           <%_ } -%>
         </tbody>
