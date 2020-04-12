@@ -6,6 +6,7 @@ const router = express.Router();
 
 // handle show requests
 router.get('/shows', shows.index);
+router.get('/shows/:date', shows.retrieve);
 
 // Export the router
 module.exports = router;

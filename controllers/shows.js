@@ -3,5 +3,5 @@ module.exports.index = function(request, response) {
 };
 
 module.exports.retrieve = function(request, response){
-    respnse.send('GET /shows/${request.params.date}');
+    response.send(`GET /shows/${request.params.date}`);
 };
