@@ -9,5 +9,12 @@ module.exports.index = function(request, response, next) {
 };
 
 module.exports.retrieve = function(request, response, next){
-    response.send(`GET /shows/${request.params.date}`);
+    response.send(`${new Date(request.params.date)}`)
+    Promise.all(queries).then(function(show) {
+      if (show) {
+        response.send(show)
+      } else {
+        next(); // No such course
+      }
+    }).catch(error => next(error));
 };
