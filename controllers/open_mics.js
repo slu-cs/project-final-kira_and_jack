@@ -7,6 +7,7 @@ module.exports.index = function(request, response, next) {
     .then(events => response.redirect(`/open_mics/${events[0]}`))
     .catch(error => next(error));
 };
+<<<<<<< HEAD
 
 // GET /open_mics/:date
 module.exports.retrieve = function(request, response, next) {
@@ -23,3 +24,5 @@ module.exports.retrieve = function(request, response, next) {
     }
   }).catch(error => next(error));
 };
+=======
+>>>>>>> 6e491015b7230862a313ef1a25aab8d55ff8dad9

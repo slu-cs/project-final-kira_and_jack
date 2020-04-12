@@ -7,22 +7,23 @@
       <table class="table">
         <thead>
           <tr>
-            <th class="border-0">Act(s)</th>
-            <th class="border-0">Description</th>
+            <th class="border-0">Act</th>
             <th class="border-0">Date</th>
           </tr>
         </thead>
         <tbody>
           <%_ for (const show of shows) { -%>
             <tr>
-              <td><%= show.performers -%></td>
-              <td><%= show.description -%></td>
-              <td><%= show.date -%></td>
+              <% if (show.link) { %>
+                <td><a href="<%= show.link -%>"><%= show.performers -%></a></td>
+              <% } else { %>
+                <td><%= show.performers -%></td>
+              <% } %>
+              <td><a href="/shows/<%=show.date-%>"><%= show.date -%></a></td>
             </tr>
           <%_ } -%>
         </tbody>
       </table>
     </main>
   </body>
-
 </html>

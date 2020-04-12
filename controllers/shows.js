@@ -1,7 +1,7 @@
 const Shows = require('../models/shows.js')
 
 module.exports.index = function(request, response, next) {
-  const order = request.query.sort || 'name'; // Default to sort by course
+  const order = request.query.sort || 'date'; // Default to sort by date
 
   Shows.find().sort(order)
     .then(shows => response.render('shows/index', {shows: shows, order: order}))
@@ -9,5 +9,15 @@ module.exports.index = function(request, response, next) {
 };
 
 module.exports.retrieve = function(request, response, next){
-    response.send(`GET /shows/${request.params.date}`);
+    const query = Shows.find().where('date').equals(request.params.date);
+    query.exec().
+        then(function(show) {
+            if (show.length !== 0){
+                response.render('shows/show', {show: show[0]});
+            }
+            else {
+                next(); // sorry no show on that day :(
+            }
+        })
+        .catch(error => next(error));
 };
