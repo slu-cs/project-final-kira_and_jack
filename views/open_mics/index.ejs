@@ -15,6 +15,8 @@
         </div>
         <div class="col">
           <main class="p-3">
+              <h2 class="text-center">Open Mic on <%= new Date(show[0].date).toString().slice(4,15) -%></h2>
+              <h3>Line Up: </h3>
               <%_ for (const performer of show) { -%>
                 <p><%= performer.name -%> - <%= performer.act -%></p>
               <%_ } -%>
