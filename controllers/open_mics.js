@@ -15,8 +15,7 @@ const OpenMic = require('../models/open_mics');
 
 module.exports.index = function(request, response, next) {
   const order = request.query.sort || 'name'; // Default to sort by course
-
   OpenMic.find().sort(order)
-    .then(open_mic => console.log(open_mic))
+    .then(openmics => response.render('open_mics/index', {openmics: openmics, order: order})
     .catch(error => next(error));
 };
