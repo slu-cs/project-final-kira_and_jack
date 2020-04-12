@@ -7,16 +7,17 @@
       <table class="table">
         <thead>
           <tr>
-            <th class="border-0"><a href="/names" class="btn <%= (order === 'names') ? 'btn-dark' : 'btn-primary' -%>">Description</a></th>
-            <th class="border-0"><a href="/names?sort=act" class="btn <%= (order === 'act') ? 'btn-dark' : 'btn-primary' -%>">Date</a></th>
+            <th class="border-0"><a href="open_mics/names" class="btn <%= (order === 'names') ? 'btn-dark' : 'btn-primary' -%>">Name</a></th>
+            <th class="border-0"><a href="open_mics/description" class="btn <%= (order === 'descprtions') ? 'btn-dark' : 'btn-primary' -%>">Description</a></th>
+            <th class="border-0"><a href="open_mics/" class="btn <%= (order === 'dates') ? 'btn-dark' : 'btn-primary' -%>">Date</a></th>
           </tr>
         </thead>
         <tbody>
           <%_ for (const name of names) { -%>
             <tr>
-              <td><a href="/open_mics/<%= name -%>"><%= name -%></a></td>
-              <td><%= name.date -%></td>
+              <td><a href="/open_mics/<%= name.act -%>"><%= name.name -%></a></td>
               <td><%= name.act -%></td>
+              <td><%= name.date -%></td>
             </tr>
           <%_ } -%>
         </tbody>
