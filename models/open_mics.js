@@ -3,8 +3,10 @@ const mongoose = require('mongoose');
 
 // Define the schema
 const OpenMic = new mongoose.Schema({
-  date: {type: Date, required: true, match: /CS\d\d\d/},
-  description: {type: String, maxlength: 1000, trim: true},
+  date: {type: Date, required: true},
+  name: {type: String, maxlength: 100, trim: true},
+  act: {type: String, maxlength: 280, trim: true}
+
 });
 
 // Export the model

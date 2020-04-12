@@ -10,7 +10,7 @@ module.exports = function() {
   mongoose.set('useFindAndModify', false);
 
   // Start connecting
-  mongoose.connect('mongodb://localhost/catalog');
+  mongoose.connect('mongodb://localhost/javabarn');
 
   // Log errors
   mongoose.connection.on('error', function(error) {
