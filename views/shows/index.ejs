@@ -3,5 +3,26 @@
   <%- include('../head'); -%>
   <body>
     <%- include('../navbar', {active: 'shows'}); -%>
+    <main class="p-3">
+      <table class="table">
+        <thead>
+          <tr>
+            <th class="border-0"><a href="open_mics/names" class="btn <%= (order === 'names') ? 'btn-dark' : 'btn-primary' -%>">Name</a></th>
+            <th class="border-0"><a href="open_mics/description" class="btn <%= (order === 'descprtions') ? 'btn-dark' : 'btn-primary' -%>">Description</a></th>
+            <th class="border-0"><a href="open_mics/" class="btn <%= (order === 'dates') ? 'btn-dark' : 'btn-primary' -%>">Date</a></th>
+          </tr>
+        </thead>
+        <tbody>
+          <%_ for (const show of shows) { -%>
+            <tr>
+              <td><a href="/open_mics/<%= name.act -%>"><%= name.name -%></a></td>
+              <td><%= name.act -%></td>
+              <td><%= name.date -%></td>
+            </tr>
+          <%_ } -%>
+        </tbody>
+      </table>
+    </main>
   </body>
+
 </html>
