@@ -1,19 +1,11 @@
 const OpenMic = require('../models/open_mics');
 
 
-// module.exports.index = function(request, response, next) {
-//   OpenMic.find('name')
-//     .then(name => response.redirect(`/open_mics/${name}`))
-//     .catch(error => next(error));
-// };
+// GET /sections?sort=
+module.exports.index = function(request, response, next) {
+  const order = request.query.sort || 'name'; // Default to sort by course
 
-// module.exports.retrieve = function(request, response, next) {
-//     OpenMic.find('name')
-//     .then
-//   };
-
-
-module.exports.retrieve = function(request, response, next) {
-    response.send(`GET /shows/${OpenMic.find({name : request.params})}`);
-
-}
+  OpenMic.find().sort(order)
+    .then(sections => response.render('sections/index', {names: names, order: order}))
+    .catch(error => next(error));
+};

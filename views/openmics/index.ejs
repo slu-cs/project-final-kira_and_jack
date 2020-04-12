@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <%- include('../head'); -%>
+  <body>
+    <%- include('../navbar', {active: 'names'}); -%>
+    <main class="p-3">
+      <table class="table">
+        <thead>
+          <tr>
+            <th class="border-0"><a href="/names" class="btn <%= (order === 'names') ? 'btn-dark' : 'btn-primary' -%>">Course</a></th>
+            <th class="border-0"><a href="/names?sort=act" class="btn <%= (order === 'act') ? 'btn-dark' : 'btn-primary' -%>">Day</a></th>
+          </tr>
+        </thead>
+        <tbody>
+          <%_ for (const name of names) { -%>
+            <tr>
+              <td><a href="/open_mics/<%= name -%>"><%= name -%></a></td>
+              <td><%= name.date -%></td>
+              <td><%= name.act -%></td>
+            </tr>
+          <%_ } -%>
+        </tbody>
+      </table>
+    </main>
+  </body>
+</html>
