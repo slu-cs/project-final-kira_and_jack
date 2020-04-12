@@ -2,22 +2,28 @@
 <html>
   <%- include('../head'); -%>
   <body>
-    <%- include('../navbar', {active: 'open_mics'}); -%>
-    <main class="p-3">
-      <table class="table">
-        <thead>
-          <tr>
-            <th class="border-0">Date</th>
-          </tr>
-        </thead>
-        <tbody>
-          <%_ for (const event of events) { -%>
-            <tr>
-                <td><a href="/open_mic/<%=event.date-%>"><%= event.date -%></a></td>
-            </tr>
-          <%_ } -%>
-        </tbody>
-      </table>
-    </main>
+    <%- include('../navbar', {active: 'open_mic'}); -%>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-auto p-3 border-right">
+          <nav class="nav nav-pills flex-column">
+            <%_ for (const event of events) { -%>
+              <%_ const status = (event === show[0].date) ? 'active bg-dark' : 'inactive'; -%>
+              <a href="/open_mics/<%= event -%>" class="nav-item nav-link <%= status -%>"><%= new Date(event).toString().slice(4,15) -%></a>
+            <%_ } -%>
+          </nav>
+        </div>
+        <div class="col">
+          <main class="p-3">
+              <h2 class="text-center">Open Mic on <%= new Date(show[0].date).toString().slice(4,15) -%></h2>
+              <h3>Line Up: </h3>
+              <%_ for (const performer of show) { -%>
+                <p><%= performer.name -%> - <%= performer.act -%></p>
+              <%_ } -%>
+           
+          </main>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
