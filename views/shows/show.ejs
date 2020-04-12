@@ -3,9 +3,14 @@
   <%- include('../head'); -%>
   <body>
     <%- include('../navbar', {active: 'shows'}); -%>
+    <% const pretty_date = function(date){
+        const options = { weekday: 'long', month: 'long', day: 'numeric' };
+        return new Date(date).toLocaleDateString("en-US", options);
+        }
+    %>
     <main class='p-3'>
         <h2><%= show.performers -%></h2>
-        <h3><%= show.date -%></h3>
+        <h4><%= pretty_date(show.date)-%>, <%= show.time -%> PM</h4>
         <p>
             <%= show.description -%>
         </p>
