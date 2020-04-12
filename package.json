@@ -1,0 +1,24 @@
+{
+  "name": "project-final-kira_and_jack",
+  "version": "1.0.0",
+  "description": "CS332 Final Project",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/slu-cs/project-final-kira_and_jack.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/slu-cs/project-final-kira_and_jack/issues"
+  },
+  "homepage": "https://github.com/slu-cs/project-final-kira_and_jack#readme",
+  "dependencies": {
+    "ejs": "^3.0.2",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.7"
+  }
+}
