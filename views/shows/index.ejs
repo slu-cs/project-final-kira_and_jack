@@ -21,7 +21,7 @@
                 <td><%= show.performers -%></td>
               <% } %>
               <td><%= show.description -%></td>
-              <td><%= show.date -%></td>
+              <td><a href="/shows/<%=show.date-%>"><%= show.date -%></a></td>
             </tr>
           <%_ } -%>
         </tbody>
