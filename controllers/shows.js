@@ -1,7 +1,10 @@
 const Shows = require('../models/shows.js')
 
 module.exports.index = function(request, response, next) {
-  Shows.distinct('date')
+  const order = request.query.sort || 'name'; // Default to sort by course
+
+  Shows.find().sort(order)
+    .then(names => response.render('shows/index', {names: names, order: order}))
     .catch(error => next(error));
 };
 
