@@ -6,6 +6,7 @@ const Show = new mongoose.Schema({
   date: {type: Date, required: true},
   performers: {type: String, maxlength: 240, trim: true, required: true},
   description: {type: String, maxlength: 1000, trim: true},
+  link: {type: String, required: false}
 });
 
 // Export the model
