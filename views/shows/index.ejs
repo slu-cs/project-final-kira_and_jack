@@ -15,7 +15,11 @@
         <tbody>
           <%_ for (const show of shows) { -%>
             <tr>
-              <td><%= show.performers -%></td>
+              <% if (show.link) { %>
+                <td><a href="<%= show.link -%>"><%= show.performers -%></a></td>
+              <% } else { %>
+                <td><%= show.performers -%></td>
+              <% } %>
               <td><%= show.description -%></td>
               <td><%= show.date -%></td>
             </tr>
