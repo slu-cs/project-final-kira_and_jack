@@ -14,6 +14,6 @@ const OpenMic = require('../models/open_mics');
 
 
 module.exports.retrieve = function(request, response, next) {
-    response.send(`GET /shows/${OpenMic.find(request.params.name)}`);
+    response.send(`GET /shows/${OpenMic.find(request.params)}`);
 
 }
