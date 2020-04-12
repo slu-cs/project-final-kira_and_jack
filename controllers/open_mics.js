@@ -1,28 +1,29 @@
-const OpenMic = require('../models/open_mics');
+const OpenMic = require('../models/open_mics.js')
 
-
-// GET /open_mics
 module.exports.index = function(request, response, next) {
-  OpenMic.distinct('date')
-    .then(events => response.redirect(`/open_mics/${events[0]}`))
+  OpenMic.find().distinct('date').exec()
+    .then(
+      function(events) {
+        if (events.length !== 0){
+            response.render('open_mics/index', {events: events})
+        }
+        else {
+            next(); // sorry no show on that day :(
+        }
+    })
     .catch(error => next(error));
 };
-<<<<<<< HEAD
 
-// GET /open_mics/:date
-module.exports.retrieve = function(request, response, next) {
-  const queries = [
-    OpenMic.findOne(request.params),
-    OpenMic.distinct('date')
-  ];
-
-  Promise.all(queries).then(function([date, events]) {
-    if (date) {
-      response.render('open_mics/index', {date: date, events: events});
-    } else {
-      next(); // No such course
-    }
-  }).catch(error => next(error));
+module.exports.retrieve = function(request, response, next){
+    const query = OpenMic.find().where('date').equals(request.params.date);
+    query.exec().
+        then(function(event) {
+            if (event.length !== 0){
+                response.render('open_mics/event', {event: event[0]});
+            }
+            else {
+                next(); // sorry no show on that day :(
+            }
+        })
+        .catch(error => next(error));
 };
-=======
->>>>>>> 6e491015b7230862a313ef1a25aab8d55ff8dad9
