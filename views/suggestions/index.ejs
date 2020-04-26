@@ -10,6 +10,11 @@
              <textarea name="description" placeholder="Description" rows="3" class="form-control mb-1"></textarea>
              <button class="btn btn-info">Submit</button>
         </form>
+        <ul>
+            <%_ for (const suggestion of suggestions) { -%>
+              <li><%= suggestion.description%></li>
+            <%_ } -%>
+        </ul>
     </main>
     <%- include('./scripts', {suggestions: suggestions}); -%>
   </body>
