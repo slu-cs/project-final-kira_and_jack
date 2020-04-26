@@ -5,6 +5,7 @@
     <%- include('../navbar', {active: 'suggestions'}); -%>
     <main class="p-3">
         <h3>Make a booking suggestion</h3>
+        <p>Just saw a rad band in a basement in Burlington? Have a cousin that goes to Berklee? Mihali is an old family friend? Let us know and we'll see if we can make something happen!</p>
         <form id="create" class="form">
             <input type="text" name="name" placeholder="Name of the band/act" class="form-control form-control-lg font-weight-bold mb-1">
              <textarea name="description" placeholder="Description" rows="3" class="form-control mb-1"></textarea>
@@ -12,7 +13,7 @@
         </form>
         <ul>
             <%_ for (const suggestion of suggestions) { -%>
-              <li><%= suggestion.description%></li>
+              <li><%= suggestion%></li>
             <%_ } -%>
         </ul>
     </main>

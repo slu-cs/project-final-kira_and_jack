@@ -12,3 +12,8 @@ module.exports.create = function(request, response, next) {
     .then(suggestion => response.status(201).send(suggestion.name))
     .catch(error => next(error));
 };
+
+// thanks
+module.exports.thanks = function(request, response, next){
+    response.render('suggestions/thanks');
+};

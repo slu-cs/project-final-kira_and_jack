@@ -4,6 +4,7 @@
     const form = $(this);
     event.preventDefault();
     $.ajax({method: 'post', url: '/suggestions', data: form.serialize()})
+        .done(window.location.href = '/suggestions/thanks')
         .fail(error => alert(error.responseText));
   });
 </script>

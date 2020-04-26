@@ -19,5 +19,8 @@ router.get('/signups', signups.index);
 router.post('/suggestions', suggestions.create);
 router.post('/signups', signups.create)
 
+// suggestions thanks page
+router.get('/suggestions/thanks', suggestions.thanks)
+
 // Export the router
 module.exports = router;
