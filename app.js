@@ -33,11 +33,6 @@ app.get('/', function(request, response) {
   response.render('index');
 });
 
-// suggestions page
-app.get('/suggestions', function(request, response){
-    response.render('suggestions');
-});
-
 // Route content requests
 app.use('/', router);
 
