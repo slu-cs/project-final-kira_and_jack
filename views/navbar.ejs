@@ -1,8 +1,11 @@
-<header class="navbar navbar-expand navbar-dark bg-dark">
-    <nav class="navbar-nav ml-3">
-      <a href="/" class="nav-item nav-link <%= active === 'home' ? 'active' : 'inactive' -%>">The Java Barn</a>
-      <a href="/shows" class="nav-item nav-link <%= active === 'shows' ? 'active' : 'inactive' -%>">Shows</a>
-      <a href="/open_mics" class="nav-item nav-link <%= active === 'open_mics' ? 'active' : 'inactive' -%>">Open Mics</a>
-      <a href="/suggestions" class="nav-item nav-link <%= active === 'suggestions' ? 'active' : 'inactive' -%>">Request a show</a>
+<header class="navbar navbar-expand navbar-custom">
+    <nav class=" navbar-nav ml-3">
+        <a class="navbar-brand" href="#">
+            <img style="width:5%;" src="circlelogo.png" alt="">
+          </a>
+      <a href="/" class="navbar-brand nav-item nav-link <%= active === 'home' ? 'active' : 'inactive' -%>">The Java Barn</a>
+      <a href="/shows" class="navbar-brand nav-item nav-link <%= active === 'shows' ? 'active' : 'inactive' -%>">Shows</a>
+      <a href="/open_mics" class="navbar-brand nav-item nav-link <%= active === 'open_mics' ? 'active' : 'inactive' -%>">Open Mics</a>
+      <a href="/suggestions" class="navbar-brand nav-item nav-link <%= active === 'suggestions' ? 'active' : 'inactive' -%>">Request a show</a>
     </nav>
   </header>

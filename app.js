@@ -13,6 +13,8 @@ const app = express();
 app.set('view engine', 'ejs');
 app.set('views', './views');
 
+app.use(express.static('public'));
+
 // Ignore icon requests
 app.get('/favicon.ico', function(request, response) {
   response.status(204).end();
@@ -50,6 +52,8 @@ app.use(function(error, request, response) {
   console.error(error.stack);
   response.status(500).send(error.message);
 });
+
+
 
 // Start the server
 app.listen(3000);
