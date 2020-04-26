@@ -1,31 +1,43 @@
 <!DOCTYPE html>
 <html>
-  <%- include('../head'); -%>
-  <body>
-    <%- include('../navbar', {active: 'open_mics'}); -%>
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-auto p-3 border-right">
-          <nav class="nav nav-pills flex-column">
-            <%_ for (const event of events) { -%>
-              <%_ const status = (event === show[0].date) ? 'active bg-dark' : 'inactive'; -%>
-              <a href="/open_mics/<%= event -%>" class="nav-item nav-link <%= status -%>"><%= new Date(event).toString().slice(4,15) -%></a>
-            <%_ } -%>
-          </nav>
-        </div>
-        <div class="col">
-          <main class="p-3">
-              <h2 class="text-center">Open Mic on <%= new Date(show[0].date).toString().slice(4,15) -%></h2>
-              
-              <ul class="list-group">
-                <li class="list-group-item list-group-item-dark text-center"><h4>Line Up</h4></li>
-                <%_ for (const performer of show) { -%>
-                  <li class="list-group-item"><%= performer.name -%> - <%= performer.act -%></li>
-                <%_ } -%>
-            </ul>
-          </main>
-        </div>
+<%- include('../head'); -%>
+
+<body>
+  <%- include('../navbar', {active: 'open_mics'}); -%>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-auto p-3 border-right">
+        <nav class="nav nav-pills flex-column">
+          <%_ for (const event of events) { -%>
+          <%_ const status = (event === show[0].date) ? 'active bg-dark' : 'inactive'; -%>
+          <a href="/open_mics/<%= event -%>"
+            class="nav-item nav-link <%= status -%>"><%= new Date(event).toString().slice(4,15) -%></a>
+          <%_ } -%>
+        </nav>
       </div>
+      <div class="col">
+        <main class="p-3">
+          <h2 class="text-center">Open Mic on <%= new Date(show[0].date).toString().slice(4,15) -%></h2>
+
+          <ul class="list-group">
+            <li class="list-group-item list-group-item-dark text-center">
+              <h4>Line Up</h4>
+            </li>
+            <%_ for (const performer of show) { -%>
+            <li class="list-group-item"><%= performer.name -%> - <%= performer.act -%></li>
+            <%_ } -%>
+          </ul>
+
+        </main>
+
+      </div>
+
     </div>
-  </body>
+
+  </div>
+  <div class="text-center">
+    <button type="button" class="btn btn-warning ">Sign Up</button>
+  </div>
+</body>
+
 </html>
