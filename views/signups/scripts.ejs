@@ -1,0 +1,12 @@
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script>
+
+  $('#create').on('submit', function(event) {
+    const form = $(this);
+    event.preventDefault();
+    $.ajax({method: 'post', url: '/signups', data: form.serialize()})
+      .done()
+      .fail(error => alert(error.responseText));
+  });
+
+</script>

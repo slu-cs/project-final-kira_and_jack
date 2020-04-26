@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const connect = require('./db');
 const Show = require('./models/shows');
 const OpenMic = require('./models/open_mics');
+const SignUp = require('./models/signups')
 
 // Connect to the database
 connect();
@@ -27,6 +28,8 @@ const open_mics = [
   new OpenMic({date:'05-06-20',time:'10:00 PM', name: 'Will Von Mehren', act: 'Spoken word'}),
 
 ];
+
+const signups = []
 
 // Reset the database
 mongoose.connection.dropDatabase()

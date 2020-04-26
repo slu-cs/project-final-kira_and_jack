@@ -7,20 +7,23 @@
     <main class="p-3">
         <h3>Sign Up for an Open Mic</h3>
         <form id="create" class="form">
-            <select class="form-control mb-1" name="dates">
-
+            <select class="form-control mb-1" name="date">
                 <%_ for (const date of dates) { -%>
-                <option value=""><%= date -%></option>
+                <option name="<%= date %>"><%= date -%></option>
                 <%_ } -%>
-
             </select>
 
+            <select class="form-control mb-1" name="time">
+                <option name="10:00 PM">10:00 PM</option>
+            </select>
+            
             <input type="text" name="name" placeholder="Name"
                 class="form-control form-control-lg font-weight-bold mb-1">
             <textarea name="description" placeholder="Description" rows="3" class="form-control mb-1"></textarea>
             <button class="btn btn-info">Submit</button>
         </form>
     </main>
+    <%- include('./scripts', {dates:dates}); -%>
 
 </body>
 
