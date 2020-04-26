@@ -1,7 +1,12 @@
 
 const Suggestion = require('../models/suggestions.js')
 module.exports.index = function(request, response, next) {
-    response.render('suggestions/index');
+    const queries = [
+        Suggestion.find()
+    ];
+    Promise.all(queries)
+        .then(suggestions => response.render('suggestions/index', {suggestions: suggestions}))
+        .catch(error => next(error));
 };
 
 // new show request
