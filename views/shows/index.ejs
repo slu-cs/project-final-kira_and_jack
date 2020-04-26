@@ -1,30 +1,28 @@
 <!DOCTYPE html>
 <html>
-  <%- include('../head'); -%>
-  <body>
-    <%- include('../navbar', {active: 'shows'}); -%>
-    <main class="p-3">
-      <table class="table">
-        <thead>
-          <tr>
-            <th class="border-0">Act</th>
-            <th class="border-0">Date</th>
-          </tr>
-        </thead>
-        <tbody>
-          <%_ for (const show of shows) { -%>
-            <tr>
-              <% if (show.link) { %>
-                <td><a href="<%= show.link -%>"><%= show.performers -%></a></td>
-              <% } else { %>
-                <td><%= show.performers -%></td>
-              <% } %>
-              <td><a href="/shows/<%=show.date-%>"><%= show.date -%></a></td>
-            </tr>
-          <%_ } -%>
-        </tbody>
-      </table>
-    </main>
-  </body>
-    <%- include('../foot'); -%>
+<%- include('../head'); -%>
+
+<body>
+  <%- include('../navbar', {active: 'shows'}); -%>
+  <main class="p-3 text-center">
+    
+    <%_ for (const show of shows) { -%>
+
+      <div class="card w-50 m-3 text-center" style="margin:0 auto">
+        <img class="card-img-top" src="<%=show.image-%>" alt="Band Image">
+        <div class="card-body">
+          <h4 class="card-title"><%= show.performers -%></h4>
+          <h6 class="card-title"><%= show.date-%> </h6>
+          <h6 class="card-title"><%= show.time-%> </h6>
+          <p class="card-text"><%= show.description-%></p>
+          <a href="<%= show.link-%>" target="_blank" class="btn btn-primary"><%= show.link-%></a>
+        </div>
+      </div>
+  
+    <%_ } -%>
+
+  </main>
+</body>
+<%- include('../foot'); -%>
+
 </html>

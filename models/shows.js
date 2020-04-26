@@ -8,6 +8,7 @@ const Show = new mongoose.Schema({
   performers: {type: String, maxlength: 240, trim: true, required: true},
   description: {type: String, maxlength: 1000, trim: true},
   link: {type: String, required: false},
+  image: {type: String, required:false}
 });
 
 Show.methods.date_string = function(){
