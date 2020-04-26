@@ -1,5 +1,19 @@
-<ul>
-    <%_ for (const suggestion of suggestions) { -%>
-      <li><%= suggestion%></li>
-    <%_ } -%>
-</ul>
+<main class="p-3">
+  <table class="table">
+    <thead>
+      <tr>
+        <th class="border-0">Name</th>
+        <th class="border-0">Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%_ for (const suggestion of suggestions) { -%>
+        <tr>
+            <td><%= suggestion.name -%></td>
+            <td><%= suggestion.description -%></td>
+            <td><button class="btn btn-warning">Delete</button></td>
+        </tr>
+      <%_ } -%>
+    </tbody>
+  </table>
+</main>
