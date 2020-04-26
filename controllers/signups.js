@@ -12,6 +12,6 @@ module.exports.index = function(request, response, next) {
 // new signup request
 module.exports.create = function (request, response, next) {
   SignUp.create(request.body)
-    .then(signup => response.status(201).send(signup))
+    .then(data => response.status(201).send(data.id))
     .catch(error => next(error));
 };

@@ -12,8 +12,10 @@ const app = express();
 // Configure the views
 app.set('view engine', 'ejs');
 app.set('views', './views');
-
 app.use(express.static('public'));
+
+// Parse request bodies like query strings
+app.use(express.urlencoded({extended: false}));
 
 // Ignore icon requests
 app.get('/favicon.ico', function(request, response) {
