@@ -12,7 +12,7 @@
         <img class="card-img-top" src="<%=show.image-%>" alt="Band Image">
         <div class="card-body">
           <h4 class="card-title"><%= show.performers -%></h4>
-          <h6 class="card-title"><%= show.date-%> </h6>
+          <h6 class="card-title"><%= new Date(show.date).toString().slice(0,15)-%> </h6>
           <h6 class="card-title"><%= show.time-%> </h6>
           <p class="card-text"><%= show.description-%></p>
           <a href="<%= show.link-%>" target="_blank" class="btn btn-primary"><%= show.link-%></a>
