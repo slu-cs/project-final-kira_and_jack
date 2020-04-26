@@ -1,12 +1,19 @@
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script>
+    function ShowMessage(data)
+    {
+      alert('Thanks for Signing Up!');
+      window.location.replace(`/open_mics/${data.date}`)
+    }
 
   $('#create').on('submit', function(event) {
     const form = $(this);
     event.preventDefault();
     $.ajax({method: 'post', url: '/signups', data: form.serialize()})
-      .done()
+      .done(data => ShowMessage(data))
       .fail(error => alert(error.responseText));
   });
+
+  
 
 </script>
