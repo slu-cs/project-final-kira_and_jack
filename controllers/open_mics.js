@@ -15,7 +15,6 @@ module.exports.retrieve = function(request, response, next) {
 
   Promise.all(queries).then(function([show, events]) {
     if (show.length > 0) {
-      console.log(show)
       response.render('open_mics/index', {show: show, events: events});
     } else {
       next(); 
