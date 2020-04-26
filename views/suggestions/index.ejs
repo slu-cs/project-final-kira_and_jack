@@ -4,7 +4,12 @@
   <body>
     <%- include('../navbar', {active: 'suggestions'}); -%>
     <main class="p-3">
-
+        <h1>Make a booking suggestion</h1>
+        <form id="create" class="form">
+            <input type="text" name="name" placeholder="Name of the band/act" class="form-control form-control-lg font-weight-bold mb-1">
+             <textarea name="description" placeholder="Description" rows="3" class="form-control mb-1"></textarea>
+             <button class="btn btn-info">Submit</button>
+        </form>
     </main>
   </body>
 </html>
