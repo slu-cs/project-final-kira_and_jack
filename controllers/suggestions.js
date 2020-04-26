@@ -7,6 +7,6 @@ module.exports.index = function(request, response, next) {
 // new show request
 module.exports.create = function(request, response, next) {
   Suggestion.create(request.body)
-    .then(course => response.status(201).send(course.id))
+    .then(suggestion => response.status(201).send(suggestion.name))
     .catch(error => next(error));
 };

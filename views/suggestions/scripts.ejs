@@ -3,8 +3,7 @@
   $('#create').on('submit', function(event) {
     const form = $(this);
     event.preventDefault();
-    $.ajax({method: 'post', url: '/courses', data: form.serialize()})
-      .done(id => window.location.replace(`/courses/${id}`))
-      .fail(error => alert(error.responseText));
+    $.ajax({method: 'post', url: '/suggestions', data: form.serialize()})
+        .fail(error => alert(error.responseText));
   });
 </script>
