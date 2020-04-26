@@ -10,6 +10,7 @@ router.get('/shows', shows.index);
 router.get('/shows/:date', shows.retrieve);
 router.get('/open_mics', open_mics.index);
 router.get('/open_mics/:date', open_mics.retrieve);
+router.get('/suggestions', suggestions.index);
 
 // Export the router
 module.exports = router;
