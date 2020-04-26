@@ -1,5 +1,9 @@
 <footer>
-    <div class='float-right pt-5'>
-        TODO: Placeholder, was thinking about having a link for admin login that says "employees only" or something
+    <div class='float-right p-5'>
+        <%_ if (admin) { -%>
+            <a href="/logout" class="btn btn-warning">Public view</a>
+        <%_ } else {-%>
+            <a href="/login" class="btn btn-warning">Employees only</a>
+        <%_ } %>
     </div>
 </footer>

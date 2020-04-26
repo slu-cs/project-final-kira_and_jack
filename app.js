@@ -1,5 +1,6 @@
 // Server for a course catalog.
 const express = require('express');
+const session = require('express-session')
 const router = require('./router');
 const connect = require('./db');
 
@@ -17,6 +18,14 @@ app.use(express.static('public'));
 // Parse request bodies like query strings
 app.use(express.urlencoded({extended: false}));
 
+// Generate a session for each client
+app.use(session({
+  name: 'java', // Name of client cookies
+  secret: 'temporary', // Password for client cookies
+  resave: false, // Recommended setting
+  saveUninitialized: false // Recommended setting
+}));
+
 // Ignore icon requests
 app.get('/favicon.ico', function(request, response) {
   response.status(204).end();
@@ -27,6 +36,24 @@ app.use(function(request, response, next) {
   console.log('--------------------------', new Date().toLocaleTimeString());
   console.log(request.method, request.url);
   console.log('Body =', request.body);
+  next();
+});
+
+// Enter admin mode and return to the previous page
+app.get('/login', function(request, response) {
+  request.session.admin = true;
+  response.redirect('back');
+});
+
+// Exit admin mode and return to the previous page
+app.get('/logout', function(request, response) {
+  request.session.admin = false;
+  response.redirect('back');
+});
+
+// Make the mode available in all views
+app.use(function(request, response, next) {
+  response.locals.admin = request.session.admin;
   next();
 });
 
