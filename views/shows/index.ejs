@@ -1,28 +1,16 @@
+
 <!DOCTYPE html>
 <html>
-<%- include('../head'); -%>
-
-<body>
-  <%- include('../navbar', {active: 'shows'}); -%>
-  <main class="p-3 text-center">
-    
-    <%_ for (const show of shows) { -%>
-
-      <div class="card w-50 m-3 text-center" style="margin:0 auto">
-        <img class="card-img-top" src="<%=show.image-%>" alt="Band Image">
-        <div class="card-body">
-          <h4 class="card-title"><%= show.performers -%></h4>
-          <h6 class="card-title"><%= new Date(show.date).toString().slice(0,15)-%> </h6>
-          <h6 class="card-title"><%= show.time-%> </h6>
-          <p class="card-text"><%= show.description-%></p>
-          <a href="<%= show.link-%>" target="_blank" class="btn btn-primary"><%= show.performers -%>'s Site</a>
-        </div>
-      </div>
-  
-    <%_ } -%>
-
-  </main>
-</body>
-<%- include('../foot'); -%>
-
+  <%- include('../head'); -%>
+  <body>
+    <%- include('../navbar', {active: 'shows'}); -%>
+    <main class="p-3">
+        <%_ if (admin) { -%>
+            <%- include('./private'); -%>
+        <%_ } else {-%>
+            <%- include('./public'); -%>
+        <%_ } %>
+    </main>
+  </body>
+    <%- include('../foot'); -%>
 </html>
