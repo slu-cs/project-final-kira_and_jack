@@ -10,7 +10,7 @@
           <%_ for (const event of events) { -%>
           <%_ const status = (event === show[0].date) ? 'active bg-warning text-dark' : 'inactive'; -%>
           <a href="/open_mics/<%= event -%>"
-            class="nav-item nav-link <%= status -%>"><%= new Date(event).toString().slice(4,15) -%></a>
+            class="nav-item nav-link text-dark <%= status -%>"><%= new Date(event).toString().slice(4,15) -%></a>
           <%_ } -%>
         </nav>
       </div>
