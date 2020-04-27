@@ -4,14 +4,14 @@ const OpenMic = require('../models/open_mics')
 module.exports.index = function(request, response, next) {
 
   OpenMic.distinct('date')
-    .then(dates => response.render('signups/index', {dates:dates}))
+    .then(events => response.render('signups/index', {events:events}))
     .catch(error => next(error));
 };
 
 
 // new signup request
 module.exports.create = function (request, response, next) {
-  OpenMic.create(request.body)
+  SignUp.create(request.body)
     .then(data => response.status(201).send(data))
     .catch(error => next(error));
 };

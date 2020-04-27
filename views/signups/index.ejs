@@ -1,30 +1,30 @@
 <!DOCTYPE html>
 <html>
 <%- include('../head'); -%>
-
 <body>
-    <%- include('../navbar', {active: ''}); -%>
-    <main class="p-3">
-        <h3>Sign Up for an Open Mic</h3>
-        <form id="create" class="form">
-            <select class="form-control mb-1" name="date">
-                <%_ for (const date of dates) { -%>
-                <option name="<%= date %>"><%= date -%></option>
-                <%_ } -%>
-            </select>
+  <%- include('../navbar', {active: 'open_mics'}); -%>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-auto p-3 border-right">
+        <nav class="nav nav-pills flex-column">
+          <%_ for (const event of events) { -%>
+          <a href="/open_mics/<%= event -%>"
+            class="nav-item nav-link text-dark inactive"><%= new Date(event).toString().slice(4,15) -%></a>
+          <%_ } -%>
 
-            <select class="form-control mb-1" name="time">
-                <option name="10:00 PM">10:00 PM</option>
-            </select>
-            
-            <input type="text" name="name" placeholder="Name"
-                class="form-control form-control-lg font-weight-bold mb-1">
-            <textarea name="act" placeholder="Description" rows="3" class="form-control mb-1"></textarea>
-            <button class="btn btn-warning">Submit</button>
-        </form>
-    </main>
-    <%- include('./scripts', {dates:dates}); -%>
+          <a href="/signups" class="nav-item nav-link text-dark active bg-warning">Sign Up For An Open Mic</a>
 
+        </nav>
+      </div>
+      <div class="col">
+              <main class="p-3">
+                  <%_ if (admin) { -%>
+                      <%- include('./private'); -%>
+                  <%_ } else {-%>
+                      <%- include('./public'); -%>
+                  <%_ } %>
+              </main>
+      </div>
+    </div>
+  </div>
 </body>
-
-</html>
