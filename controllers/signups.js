@@ -2,13 +2,16 @@ const SignUp = require('../models/signups.js')
 const OpenMic = require('../models/open_mics')
 
 module.exports.index = function(request, response, next) {
-
-  OpenMic.distinct('date')
-    .then(events => response.render('signups/index', {events:events}))
-    .catch(error => next(error));
+    queries = [
+        OpenMic.distinct('date'),
+        SignUp.find()
+    ];
+    Promise.all(queries)
+        .then(function(results){
+            response.render('signups/index', {events:results[0], signups:results[1]})
+        })
+        .catch(error => next(error));
 };
-
-
 // new signup request
 module.exports.create = function (request, response, next) {
   SignUp.create(request.body)

@@ -1,0 +1,21 @@
+<main class="p-3">
+  <table class="table">
+    <thead>
+      <tr>
+        <th class="border-0">Name</th>
+        <th class="border-0">Description</th>
+        <th class="border-0">id</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%_ for (const signup of signups) { -%>
+        <tr>
+            <td><%= signup.name -%></td>
+            <td><%= signup.description -%></td>
+            <td><%= signup.id -%></td>
+            <td><button class="delete btn btn-warning">Delete</button></td>
+        </tr>
+      <%_ } -%>
+    </tbody>
+  </table>
+</main>
