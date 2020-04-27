@@ -4,6 +4,7 @@
     {
       alert('Show successfully added!');
       $(form)[0].reset();
+      location.reload();
     }
 
   $('#create').on('submit', function(event) {
@@ -13,6 +14,15 @@
       .done(data => ShowMessage(form))
       .fail(error => alert(error.responseText));
   });
+
+  $('.delete').on('click', function(event){
+     event.preventDefault();
+     const tr = $(this.closest('tr'));
+     const id = tr.children()[2].textContent;
+     $.ajax({method: 'delete', url: '/shows', data: {id: id}})
+         .done(window.location.reload())
+         .fail(error => alert(error.responseText));
+   });
 
   
 
