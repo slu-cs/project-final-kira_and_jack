@@ -14,23 +14,17 @@
             class="nav-item nav-link text-dark <%= status -%>"><%= new Date(event).toString().slice(4,15) -%></a>
           <%_ } -%>
 
-          <a href="/signups" class="nav-item nav-link text-dark">Sign Up For An Open Mic</a>
-
+          <a href="/signups" class="nav-item nav-link text-dark">Sign-Ups</a>
         </nav>
       </div>
       <div class="col">
-        <main class="p-3 w-50">
-          <h2 class="text-center">Open Mic on <%= new Date(show[0].date).toString().slice(4,15) -%></h2>
-
-          <ul class="list-group">
-            <li class="list-group-item list-group-item-dark text-center">
-              <h4>Line Up</h4>
-            </li>
-            <%_ for (const performer of show) { -%>
-            <li class="list-group-item"><%= performer.name -%> - <%= performer.act -%></li>
-            <%_ } -%>
-          </ul>
-        </main>
+          <main class="p-3">
+              <%_ if (admin) { -%>
+                  <%- include('./private'); -%>
+              <%_ } else {-%>
+                  <%- include('./public'); -%>
+              <%_ } %>
+          </main>
       </div>
     </div>
   </div>
