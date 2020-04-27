@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <%- include('../head'); -%>
+
 <body>
   <%- include('../navbar', {active: 'open_mics'}); -%>
   <div class="container-fluid">
@@ -12,10 +13,13 @@
           <a href="/open_mics/<%= event -%>"
             class="nav-item nav-link text-dark <%= status -%>"><%= new Date(event).toString().slice(4,15) -%></a>
           <%_ } -%>
+
+          <a href="/signups" class="nav-item nav-link text-dark">Sign Up For An Open Mic</a>
+
         </nav>
       </div>
       <div class="col">
-        <main class="p-3">
+        <main class="p-3 w-50">
           <h2 class="text-center">Open Mic on <%= new Date(show[0].date).toString().slice(4,15) -%></h2>
 
           <ul class="list-group">
@@ -26,18 +30,14 @@
             <li class="list-group-item"><%= performer.name -%> - <%= performer.act -%></li>
             <%_ } -%>
           </ul>
-
         </main>
-        <div class="text-center">
-            <a href="/signups" class="btn btn-warning">Sign Up</a>
-        </div>
-
       </div>
-
     </div>
-
   </div>
 
+
+
 </body>
-  <%- include('../foot'); -%>
+<%- include('../foot'); -%>
+
 </html>

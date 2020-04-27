@@ -1,0 +1,19 @@
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script>
+    function ShowMessage(form)
+    {
+      alert('Show successfully added!');
+      $(form)[0].reset();
+    }
+
+  $('#create').on('submit', function(event) {
+    const form = $(this);
+    event.preventDefault();
+    $.ajax({method: 'post', url: '/shows', data: form.serialize()})
+      .done(data => ShowMessage(form))
+      .fail(error => alert(error.responseText));
+  });
+
+  
+
+</script>
