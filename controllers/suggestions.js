@@ -17,3 +17,11 @@ module.exports.create = function(request, response, next) {
 module.exports.thanks = function(request, response, next){
     response.render('suggestions/thanks');
 };
+
+// delete
+module.exports.delete = function(request, response, next){
+    console.log("FUCK");
+    // Suggestion.findByIdAndDelete(request.body)
+    //     .then(suggestion => suggestion ? response.status(200).end() : next())
+    //     .catch(error => next(error));
+};

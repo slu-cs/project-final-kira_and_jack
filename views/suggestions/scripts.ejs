@@ -7,4 +7,12 @@
         .done(window.location.href = '/suggestions/thanks')
         .fail(error => alert(error.responseText));
   });
+  $('.delete').on('click', function(event){
+     event.preventDefault();
+     const tr = $(this.closest('tr'));
+     const id = tr.children()[2].textContent;
+     $.ajax({method: 'delete', url: '/suggestions', data: id})
+         .done(window.location.href = '/suggestions')
+         .fail(error => alert(error.responseText));
+   });
 </script>
