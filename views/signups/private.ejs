@@ -5,6 +5,7 @@
         <th class="border-0">Name</th>
         <th class="border-0">Description</th>
         <th class="border-0">id</th>
+        <th class="border-0">Actions</th>
       </tr>
     </thead>
     <tbody>
@@ -13,6 +14,7 @@
             <td><%= signup.name -%></td>
             <td><%= signup.description -%></td>
             <td><%= signup.id -%></td>
+            <td><button class="approve btn btn-warning">Approve</button></td>
             <td><button class="delete btn btn-warning">Delete</button></td>
         </tr>
       <%_ } -%>

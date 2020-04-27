@@ -30,9 +30,10 @@ router.post('/suggestions', suggestions.create);
 router.post('/signups', signups.create);
 router.post('/shows', authorize, shows.create);
 
-// delete suggestion
+// delete suggestion, show, or signup
 router.delete('/suggestions', authorize, suggestions.delete);
-router.delete('/shows', authorize, shows.delete)
+router.delete('/shows', authorize, shows.delete);
+router.delete('/signups', authorize, signups.delete);
 
 // Export the router
 module.exports = router;
