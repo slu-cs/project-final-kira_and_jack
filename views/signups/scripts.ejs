@@ -23,5 +23,13 @@
          .fail(error => alert(error.responseText));
    });
 
+   $('.approve').on('click', function(event){
+      event.preventDefault();
+      const tr = $(this.closest('tr'));
+      const id = tr.children()[2].textContent;
+      $.ajax({method: 'post', url: '/open_mics', data: {id: id}})
+          .done(window.location.reload())
+          .fail(error => alert(error.responseText));
+    });
 
 </script>
