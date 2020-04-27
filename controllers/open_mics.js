@@ -23,9 +23,15 @@ module.exports.retrieve = function(request, response, next) {
   }).catch(error => next(error));
 };
 
-module.exports.create = function(response, request, next){
-    console.log(request.body);
-    //SignUp.findById(request.body.id)
-//        .then(foo => console.log(foo))
-    //    .catch(error => next(error));
+module.exports.create = function(request, response, next){
+    SignUp.findByIdAndDelete(request.body.id)
+        .then(function(signup){
+            OpenMic.create({
+                date: signup.date,
+                time: signup.time,
+                name: signup.name,
+                act: signup.description
+            });
+        })
+        .catch(error => next(error));
 };
