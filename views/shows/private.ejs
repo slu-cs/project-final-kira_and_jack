@@ -34,6 +34,7 @@
                         <td><%= show.performers -%></td>
                         <td><%= new Date(show.date).toString().slice(0,15)-%></td>
                         <td><%= show.id -%></td>
+                        <td><a href='/shows/<%=show.id-%>' class="edit btn btn-warning">Edit</a></td>                        
                         <td><button class="delete btn btn-warning">Delete</button></td>
                     </tr>
                     <%_ } -%>

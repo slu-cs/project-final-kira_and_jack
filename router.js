@@ -18,7 +18,7 @@ const authorize = function(request, response, next) {
 
 // handle content requests
 router.get('/shows', shows.index);
-router.get('/shows/:date', shows.retrieve);
+router.get('/shows/:id', shows.retrieve);
 router.get('/open_mics', open_mics.index);
 router.get('/open_mics/:date', open_mics.retrieve);
 router.get('/suggestions', suggestions.index);
@@ -36,6 +36,9 @@ router.delete('/suggestions', authorize, suggestions.delete);
 router.delete('/shows', authorize, shows.delete);
 router.delete('/signups', authorize, signups.delete);
 router.delete('/open_mics', authorize, open_mics.delete);
+
+// edit show
+router.put('/shows/:id', authorize, shows.update);
 
 // Export the router
 module.exports = router;

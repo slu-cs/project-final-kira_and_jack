@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html>
+  <%- include('../head'); -%>
+  <body>
+    <%- include('../navbar', {active: 'shows'}); -%>
+    <main class="p-3">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm ">
+                        <h3 class="text-center">Edit Show</h3>
+                        <form class="form">
+                            <input type="text" name="date" placeholder="MM/DD/YY" value="<%=show.date-%>"
+                                class="form-control form-control-lg font-weight-bold mb-1">
+                            <input type="text" name="time" placeholder="HH:mm" value="<%=show.time-%>"
+                                class="form-control form-control-lg font-weight-bold mb-1">
+                            <input type="text" name="performers" placeholder="Performers" value="<%=show.performers-%>"
+                                class="form-control form-control-lg font-weight-bold mb-1">
+                            <textarea name="description" placeholder="Description" rows="3" class="form-control mb-1"><%=show.description-%></textarea>
+                            <textarea name="link" placeholder="Site Link" rows="3" class="form-control mb-1"><%=show.link-%></textarea>
+                            <textarea name="image" placeholder="Image URL" rows="3" class="form-control mb-1"><%=show.image-%></textarea>
+                            <div class="text-center">
+                                <button id='edit' class="btn btn-warning m-2">Save</button>
+                                <a href='/shows' class="btn btn-warning m-2">Discard changes</a>
+                            </div>
+                        </form>
+                        </div>
+                    </div>
+                </div>
+    </main>
+  </body>
+  <!-- scripts for this page go here instead of the general file b/c they need access to the specific "show" variable -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script>
+      $('#edit').on('click', function(event) {
+        const form = $(this.closest('form'));
+        event.preventDefault();
+        $.ajax({method: 'put', url: '/shows/<%=show.id-%>', data: form.serialize()})
+          .done(data => window.location.href ='/shows')
+          .fail(error => alert(error.responseText));
+      });
+  </script>
+
+  <%- include('../foot'); -%>
+</html>
