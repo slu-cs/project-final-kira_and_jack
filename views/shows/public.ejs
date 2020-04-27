@@ -3,15 +3,20 @@
     
     <%_ for (const show of shows) { -%>
 
-      <div class="card w-50 m-3 text-center" style="margin:0 auto">
-        <img class="card-img-top" src="<%=show.image-%>" alt="Band Image">
-        <div class="card-body">
+      
+      <div class="card w-100 m-3 p-3 text-center" style="margin:0 auto">
+        <div class="card-body  row">
+        <div class="col-sm-6">
+            <img class="w-75" src="<%=show.image-%>" alt="Band Image">
+        </div>
+        <div class="col-sm-6">
           <h4 class="card-title"><%= show.performers -%></h4>
           <h6 class="card-title"><%= new Date(show.date).toString().slice(0,15)-%> </h6>
           <h6 class="card-title"><%= show.time-%> </h6>
           <p class="card-text"><%= show.description-%></p>
           <a href="<%= show.link-%>" target="_blank" class="btn btn-warning"><%= show.performers -%>'s Site</a>
         </div>
+      </div>
       </div>
   
     <%_ } -%>
