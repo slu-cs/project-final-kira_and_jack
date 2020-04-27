@@ -27,7 +27,8 @@ router.get('/suggestions/thanks', suggestions.thanks)
 
 // new suggestion or open mic signup
 router.post('/suggestions', suggestions.create);
-router.post('/signups', signups.create)
+router.post('/signups', signups.create);
+router.post('/shows', shows.create);
 
 // delete suggestion
 router.delete('/suggestions', authorize, suggestions.delete);

@@ -24,7 +24,7 @@ module.exports.retrieve = function(request, response, next){
 
 // new show request
 module.exports.create = function (request, response, next) {
-    Show.create(request.body)
+    Shows.create(request.body)
       .then(data => response.status(201).send(data))
       .catch(error => next(error));
   };
