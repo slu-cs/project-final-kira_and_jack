@@ -23,13 +23,14 @@ router.get('/open_mics', open_mics.index);
 router.get('/open_mics/:date', open_mics.retrieve);
 router.get('/suggestions', suggestions.index);
 router.get('/signups', signups.index);
+router.get('/suggestions/thanks', suggestions.thanks)
 
-// new suggestion
+// new suggestion or open mic signup
 router.post('/suggestions', suggestions.create);
 router.post('/signups', signups.create)
 
-// suggestions thanks page
-router.get('/suggestions/thanks', suggestions.thanks)
+// delete suggestion
+router.delete('/suggestions', authorize, suggestions.delete);
 
 // Export the router
 module.exports = router;
