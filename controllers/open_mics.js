@@ -23,6 +23,7 @@ module.exports.retrieve = function(request, response, next) {
   }).catch(error => next(error));
 };
 
+// make openmic obj from signup obj
 module.exports.create = function(request, response, next){
     SignUp.findByIdAndDelete(request.body.id)
         .then(function(signup){
@@ -31,6 +32,20 @@ module.exports.create = function(request, response, next){
                 time: signup.time,
                 name: signup.name,
                 act: signup.description
+            });
+        })
+        .catch(error => next(error));
+};
+
+//revert openmic obj to signup obj
+module.exports.delete = function(request, response, next){
+    OpenMic.findByIdAndDelete(request.body.id)
+        .then(function(signup){
+            SignUp.create({
+                date: signup.date,
+                time: signup.time,
+                name: signup.name,
+                description: signup.act
             });
         })
         .catch(error => next(error));

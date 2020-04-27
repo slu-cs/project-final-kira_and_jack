@@ -5,6 +5,6 @@
       <h4>Line Up</h4>
     </li>
     <%_ for (const performer of show) { -%>
-    <li class="list-group-item"><%= performer.name -%> - <%= performer.act -%> <button class="delete btn btn-warning float-right">Delete</button></li>
+    <li id='<%= performer.id-%>' class="list-group-item"><%= performer.name -%> - <%= performer.act -%> <button class="delete btn btn-warning float-right">Move to pending</button></li>
     <%_ } -%>
 </ul>

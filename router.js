@@ -31,10 +31,11 @@ router.post('/signups', signups.create);
 router.post('/shows', authorize, shows.create);
 router.post('/open_mics', authorize, open_mics.create);
 
-// delete suggestion, show, or signup
+// delete requests
 router.delete('/suggestions', authorize, suggestions.delete);
 router.delete('/shows', authorize, shows.delete);
 router.delete('/signups', authorize, signups.delete);
+router.delete('/open_mics', authorize, open_mics.delete);
 
 // Export the router
 module.exports = router;

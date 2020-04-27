@@ -1,0 +1,10 @@
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script>
+  $('.delete').on('click', function(event){
+     event.preventDefault();
+     const id = $(this).closest('li').attr('id');
+     $.ajax({method: 'delete', url: '/open_mics', data: {id: id}})
+         .done(window.location.reload())
+         .fail(error => alert(error.responseText));
+   });
+</script>
