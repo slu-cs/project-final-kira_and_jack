@@ -20,7 +20,6 @@ module.exports.thanks = function(request, response, next){
 
 // delete
 module.exports.delete = function(request, response, next){
-    console.log(request.body.id);
     Suggestion.findByIdAndDelete(request.body.id)
          .then(suggestion => suggestion ? response.status(200).end() : next())
          .catch(error => next(error));

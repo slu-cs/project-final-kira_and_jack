@@ -1,4 +1,5 @@
-const OpenMic = require('../models/open_mics.js')
+const OpenMic = require('../models/open_mics.js');
+const SignUp = require('../models/signups.js');
 
 module.exports.index = function(request, response, next) {
   OpenMic.distinct('date')
@@ -17,7 +18,20 @@ module.exports.retrieve = function(request, response, next) {
     if (show.length > 0) {
       response.render('open_mics/index', {show: show, events: events});
     } else {
-      next(); 
+      next();
     }
   }).catch(error => next(error));
+};
+
+module.exports.create = function(request, response, next){
+    SignUp.findByIdAndDelete(request.body.id)
+        .then(function(signup){
+            OpenMic.create({
+                date: signup.date,
+                time: signup.time,
+                name: signup.name,
+                act: signup.description
+            });
+        })
+        .catch(error => next(error));
 };
