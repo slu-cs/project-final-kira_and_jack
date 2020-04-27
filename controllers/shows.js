@@ -28,3 +28,12 @@ module.exports.create = function (request, response, next) {
       .then(data => response.status(201).send(data))
       .catch(error => next(error));
   };
+
+// delete
+module.exports.delete = function(request, response, next){
+    console.log(request.body.id);
+    Shows.findByIdAndDelete(request.body.id)
+         .then(suggestion => suggestion ? response.status(200).end() : next())
+         .catch(error => next(error));
+};
+
