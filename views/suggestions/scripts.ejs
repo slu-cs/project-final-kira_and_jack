@@ -12,7 +12,7 @@
      const tr = $(this.closest('tr'));
      const id = tr.children()[2].textContent;
      $.ajax({method: 'delete', url: '/suggestions', data: id})
-         .done(() => window.location.replace('/suggestions'))
+         .done(window.location.href = '/suggestions')
          .fail(error => alert(error.responseText));
    });
 </script>

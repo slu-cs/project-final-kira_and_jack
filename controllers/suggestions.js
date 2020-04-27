@@ -20,7 +20,8 @@ module.exports.thanks = function(request, response, next){
 
 // delete
 module.exports.delete = function(request, response, next){
-    Suggestion.findByIdAndDelete(request.body)
-        .then(suggestion => suggestion ? response.status(200).end() : next())
-        .catch(error => next(error));
+    console.log("FUCK");
+    // Suggestion.findByIdAndDelete(request.body)
+    //     .then(suggestion => suggestion ? response.status(200).end() : next())
+    //     .catch(error => next(error));
 };
