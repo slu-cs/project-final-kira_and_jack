@@ -39,6 +39,7 @@ router.delete('/open_mics/:id', authorize, open_mics.delete);
 
 // edit show
 router.put('/shows/:id', authorize, shows.update);
+router.put('/open_mics/:id', authorize, open_mics.update);
 
 // Export the router
 module.exports = router;

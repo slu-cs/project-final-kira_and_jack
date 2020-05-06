@@ -37,16 +37,20 @@ module.exports.create = function(request, response, next){
         .catch(error => next(error));
 };
 
-//revert openmic obj to signup obj
+// delete sign up object
 module.exports.delete = function(request, response, next){
-    OpenMic.findByIdAndDelete(request.params.id)
-        .then(function(signup){
-            SignUp.create({
-                date: signup.date,
-                time: signup.time,
-                name: signup.name,
-                description: signup.act
-            });
-        })
-        .catch(error => next(error));
+  SignUp.findByIdAndDelete(request.params.id)
+      .then(suggestion => suggestion ? response.status(200).end() : next())
+      .catch(error => next(error));
 };
+
+
+// update signup object
+module.exports.update= function(request, response, next){
+  SignUp.findByIdAndUpdate(request.params.id, {approved : request.body.approved})
+      .catch(error => next(error));
+};
+
+
+
+

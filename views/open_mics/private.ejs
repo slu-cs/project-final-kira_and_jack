@@ -1,13 +1,27 @@
 <h2 class="text-center">Open Mic on <%= new Date(show[0].date).toString().slice(4,15) -%></h2>
 
 <ul class="list-group">
-    <li class="list-group-item list-group-item-dark text-center">
-      <h4>Line Up</h4>
-    </li>
-    <%_ for (const performer of show) { -%>
-    <li id='<%= performer.id-%>' class="list-group-item"><%= performer.name -%> - <%= performer.act -%> <button class="delete btn btn-warning float-right">Move to pending</button></li>
-    <%_ } -%>
-    
-    
+  <li class="list-group-item list-group-item-dark text-center">
+    <h4>Line Up</h4>
+  </li>
+  <%_ for (const performer of show) { -%>
+    <% if(performer.approved){ %>
+      
+        <li id='<%= performer.id-%>' class="list-group-item"><%= performer.name -%> - <%= performer.description -%> <button
+          class="remove btn btn-warning float-right">Remove from Lineup</button></li>
+        
+
+
+    <% } else{ %>
+      <li id='<%= performer.id-%>' class="list-group-item"><%= performer.name -%> - <%= performer.description -%> <button
+        class="delete btn btn-warning float-right ml-2">Delete</button><button
+        class="approve btn btn-warning float-right">Approve</button></li>
+     
+
+  <% } %>
+
+  <%_ } -%>
+
+
 
 </ul>
