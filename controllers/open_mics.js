@@ -39,7 +39,7 @@ module.exports.create = function(request, response, next){
 
 //revert openmic obj to signup obj
 module.exports.delete = function(request, response, next){
-    OpenMic.findByIdAndDelete(request.body.id)
+    OpenMic.findByIdAndDelete(request.params.id)
         .then(function(signup){
             SignUp.create({
                 date: signup.date,

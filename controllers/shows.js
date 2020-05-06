@@ -1,11 +1,9 @@
 const Shows = require('../models/shows.js')
 
 module.exports.index = function(request, response, next) {
-  const order = request.query.sort || 'date'; // Default to sort by date
-
-  Shows.find().sort(order)
-    .then(shows => response.render('shows/index', {shows: shows, order: order}))
-    .catch(error => next(error));
+    Shows.find().
+        .then(shows => response.render('shows/index', {shows: shows}))
+        .catch(error => next(error));
 };
 
 module.exports.retrieve = function(request, response, next){
@@ -31,15 +29,14 @@ module.exports.create = function (request, response, next) {
 
 // edit show
 module.exports.update = function (request, response, next) {
-    Shows.findByIdAndDelete(request.params.id)
-        .then(Shows.create(request.body))
+    Shows.findByIdAndUpdate(request.params.id, request.body)
         .then(data => response.status(201).send(data))
         .catch(error => next(error));
   };
 
 // delete
 module.exports.delete = function(request, response, next){
-    Shows.findByIdAndDelete(request.body.id)
+    Shows.findByIdAndDelete(request.params.id)
          .then(suggestion => suggestion ? response.status(200).end() : next())
          .catch(error => next(error));
 };

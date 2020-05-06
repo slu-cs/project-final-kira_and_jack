@@ -3,7 +3,7 @@
   $('.delete').on('click', function(event){
      event.preventDefault();
      const id = $(this).closest('li').attr('id');
-     $.ajax({method: 'delete', url: '/open_mics', data: {id: id}})
+     $.ajax({method: 'delete', url: `/open_mics/${id}`})
          .done(window.location.reload())
          .fail(error => alert(error.responseText));
    });
