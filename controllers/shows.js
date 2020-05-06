@@ -31,8 +31,7 @@ module.exports.create = function (request, response, next) {
 
 // edit show
 module.exports.update = function (request, response, next) {
-    Shows.findByIdAndDelete(request.params.id)
-        .then(Shows.create(request.body))
+    Shows.findByIdAndUpdate(request.params.id, request.body)
         .then(data => response.status(201).send(data))
         .catch(error => next(error));
   };
