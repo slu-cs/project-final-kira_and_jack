@@ -54,6 +54,23 @@ function ShowMessage(data)
     $('#lineup').show();
   });
 
+  $("#openmic-form").hide();
+  $("#show-edit-lineup").hide();
+
+  $('#addopenmic').click(function(){
+    $('#addopenmic,#show-edit-lineup').toggle();
+    $('#openmic-form').show()
+    $('#edit-lineup').hide()
+  });
+
+  $('#show-edit-lineup').click(function(){
+    $('#addopenmic,#show-edit-lineup').toggle();
+    $('#openmic-form').hide()
+    $('#edit-lineup').show();
+  });
+
+  
+
 
 
 </script>
