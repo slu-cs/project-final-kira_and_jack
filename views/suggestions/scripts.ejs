@@ -10,7 +10,7 @@
   $('.delete').on('click', function(event){
      event.preventDefault();
      const tr = $(this.closest('tr'));
-     const id = tr.children()[2].textContent;
+     const id = tr.attr('id');
      $.ajax({method: 'delete', url: `/suggestions/${id}`})
          .done(window.location.reload())
          .fail(error => alert(error.responseText));

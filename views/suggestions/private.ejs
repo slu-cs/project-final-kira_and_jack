@@ -4,15 +4,15 @@
       <tr>
         <th class="border-0">Name</th>
         <th class="border-0">Description</th>
-        <th class="border-0">id</th>
+        <th class="border-0">Date</th>
       </tr>
     </thead>
     <tbody>
       <%_ for (const suggestion of suggestions) { -%>
-        <tr>
+        <tr id=<%=suggestion.id-%>>
             <td><%= suggestion.name -%></td>
             <td><%= suggestion.description -%></td>
-            <td><%= suggestion.id -%></td>
+            <td><%= suggestion.date -%></td>
             <td><button class="delete btn btn-warning">Delete</button></td>
         </tr>
       <%_ } -%>
