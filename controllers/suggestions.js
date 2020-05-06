@@ -8,7 +8,11 @@ module.exports.index = function(request, response, next) {
 
 // new show request
 module.exports.create = function(request, response, next) {
-  Suggestion.create(request.body)
+  Suggestion.create({
+      date: Date.now(),
+      name: request.body.name,
+      description: request.body.description
+    })
     .then(suggestion => response.status(201).send(suggestion.name))
     .catch(error => next(error));
 };
