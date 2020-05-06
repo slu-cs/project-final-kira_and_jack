@@ -3,8 +3,7 @@ const mongoose = require('mongoose');
 
 // Define the schema
 const Show = new mongoose.Schema({
-  date: {type: String}, // date objects are a hassle
-  time: {type: String},
+  date: {type: Date}, // date objects are a hassle
   performers: {type: String, maxlength: 240, trim: true, required: true},
   description: {type: String, maxlength: 1000, trim: true},
   link: {type: String, required: false},

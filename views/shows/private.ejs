@@ -4,7 +4,7 @@
             <div class="col-sm ">
             <h3 class="text-center">Add New Show</h3>
             <form id="create" class="form">
-                <input type="text" name="date" placeholder="MM/DD/YY"
+                <input type="text" name="date" placeholder="YYYY-MM-DD"
                     class="form-control form-control-lg font-weight-bold mb-1">
                 <input type="text" name="time" placeholder="HH:mm"
                     class="form-control form-control-lg font-weight-bold mb-1">
@@ -20,18 +20,20 @@
             </div>
             <div class="col-sm">
             <table class="table">
-                <h3 class="text-center">Delete Existing Show</h3>
+                <h3 class="text-center">Edit Existing Show</h3>
                 <thead>
                     <tr>
                         <th class="border-0">Performer</th>
                         <th class="border-0">Date</th>
+                        <th class="border-0">Time</th>
                     </tr>
                 </thead>
                 <tbody>
                     <%_ for (const show of shows) { -%>
                     <tr id=<%=show.id-%>>
                         <td><%= show.performers -%></td>
-                        <td><%= new Date(show.date).toString().slice(0,15)-%></td>
+                        <td><%= show.date.toString().slice(0,15)-%></td>
+                        <td><%=show.date.toTimeString().slice(0, 5)-%></td>
                         <td><a href='/shows/<%=show.id-%>' class="edit btn btn-warning">Edit</a></td>
                         <td><button class="delete btn btn-warning">Delete</button></td>
                     </tr>

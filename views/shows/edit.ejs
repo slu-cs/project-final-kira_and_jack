@@ -10,9 +10,9 @@
                         <div class="col-sm ">
                         <h3 class="text-center">Edit Show</h3>
                         <form class="form">
-                            <input type="text" name="date" placeholder="MM/DD/YY" value="<%=show.date-%>"
+                            <input type="text" name="date" placeholder="YYYY-MM-DD" value="<%=show.date.toJSON().slice(0,10)-%>"
                                 class="form-control form-control-lg font-weight-bold mb-1">
-                            <input type="text" name="time" placeholder="HH:mm" value="<%=show.time-%>"
+                            <input type="text" name="time" placeholder="HH:mm" value="<%=show.date.toTimeString().slice(0, 5)-%>"
                                 class="form-control form-control-lg font-weight-bold mb-1">
                             <input type="text" name="performers" placeholder="Performers" value="<%=show.performers-%>"
                                 class="form-control form-control-lg font-weight-bold mb-1">

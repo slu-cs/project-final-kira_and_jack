@@ -10,7 +10,7 @@ connect();
 
 // Model a collection of shows
 const shows = [
-  new Show({date: '04-09-20', time: '10:00 PM' , performers: 'Mr. Charlie and Blues for Breakfast', description: 'Blues For Breakfast is now entering its 3rd decade of entertaining people in northern New England and New York. Started back in 1991 to play a Discover Jazz Festival blues jam, they have evolved into the Champlain Valleys Do It All band. Though focused mostly on Grateful Americana, the group loves to mix classic rock, reggae, Motown and originals into their shows if the room calls for it.', link: 'http://www.bluesforbreakfast.com/', image:'https://2ab9pu2w8o9xpg6w26xnz04d-wpengine.netdna-ssl.com/wp-content/uploads/legacy-band-images/blues-for-breakfast.jpg'}),
+  new Show({date: Date.parse('09 Apr 2020 22:00:00 EST'), performers: 'Mr. Charlie and Blues for Breakfast', description: 'Blues For Breakfast is now entering its 3rd decade of entertaining people in northern New England and New York. Started back in 1991 to play a Discover Jazz Festival blues jam, they have evolved into the Champlain Valleys Do It All band. Though focused mostly on Grateful Americana, the group loves to mix classic rock, reggae, Motown and originals into their shows if the room calls for it.', link: 'http://www.bluesforbreakfast.com/', image:'https://2ab9pu2w8o9xpg6w26xnz04d-wpengine.netdna-ssl.com/wp-content/uploads/legacy-band-images/blues-for-breakfast.jpg'}),
   new Show({date: '04-16-20', time: '10:00 PM' , performers: 'Vundabar', description: 'Vundabar is an American indie rock band from Boston, Massachusetts. Vundabar formed when Brandon Hagen and Drew McDonald were in high school. Vundabar released their first full-length album in 2013 titled Antics. In 2015, Vundabar released their second full-length album titled Gawk.', link: 'https://vundabar.bandcamp.com/', image:"https://miro.medium.com/max/5120/1*1eOPonPEPeEio_nqHLxNOA.jpeg"}),
   new Show({date: '04-23-20', time: '10:00 PM' , performers: 'Acid Dad', description: 'NYC\'s Acid Dad has made waves in the rock scene for the last couple of years with their catchy blend of psych and punk rock. In addition to releasing their debut EP Lets Plan a Robbery in 2016, theyve toured across the country, sharing the stage with bands like White Reaper, Diarrhea Planet, and Meatbodies.', link:'https://open.spotify.com/artist/3iqOjs2iwL6ywtcENg1ppm?autoplay=true&v=A', image:"https://s3.amazonaws.com/ohmyrocknessdotcom/uploads/band/image/129031/acid1111.jpg"}),
   new Show({date: '04-30-20', time: '10:00 PM' , performers: 'After Funk', description: 'Championing a new and unique sound, After Funk has been bringing their infectiously fun yet thoughtful music to audiences across North America since they formed in 2011. The Toronto based funk, rock and soul family have been touring relentlessly for years and have no plans of slowing down anytime soon. Hailed as "the grooviest band from north of the border", After Funk has been steadily on the rise. ', link:'https://afterfunk.ca/', image:"https://f4.bcbits.com/img/0005999204_10.jpg"}),
@@ -18,7 +18,7 @@ const shows = [
 
 ];
 
-// Model a collection of open mics 
+// Model a collection of open mics
 const open_mics = [
   new OpenMic({date: new Date('2020-04-22T22:00:00')}),
   new OpenMic({date: new Date('2020-05-06T22:00:00')}),
