@@ -3,7 +3,7 @@
 
 function ShowMessage(data)
     {
-      alert('Thanks for Signing Up!');
+      alert('Thanks for Signing Up! Once we have approved your request, you will appear on the lineup!');
       window.location.replace(`/open_mics/${data.date}`)
     }
 
@@ -38,5 +38,22 @@ function ShowMessage(data)
       .done(data => ShowMessage(data))
       .fail(error => alert(error.responseText));
   });
+
+  $("#signupform").hide();
+  $("#showlineup").hide();
+
+  $('#showform').click(function(){
+    $('#showform,#showlineup').toggle();
+    $('#signupform').show()
+    $('#lineup').hide();
+  });
+
+  $('#showlineup').click(function(){
+    $('#showform,#showlineup').toggle();
+    $('#signupform').hide()
+    $('#lineup').show();
+  });
+
+
 
 </script>
