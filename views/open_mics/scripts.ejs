@@ -1,5 +1,12 @@
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script>
+
+function ShowMessage(data)
+    {
+      alert('Thanks for Signing Up!');
+      window.location.replace(`/open_mics/${data.date}`)
+    }
+
   $('.remove').on('click', function(event){
      event.preventDefault();
      const id = $(this).closest('li').attr('id');
@@ -23,5 +30,13 @@
          .done(window.location.reload())
          .fail(error => alert(error.responseText));
    });
+
+   $('.submit').on('click', function(event) {
+    const form = $(this).closest('form');
+    event.preventDefault();
+    $.ajax({method: 'post', url: "/open_mics", data: form.serialize()})
+      .done(data => ShowMessage(data))
+      .fail(error => alert(error.responseText));
+  });
 
 </script>

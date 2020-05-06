@@ -23,18 +23,11 @@ module.exports.retrieve = function(request, response, next) {
   }).catch(error => next(error));
 };
 
-// make openmic obj from signup obj
-module.exports.create = function(request, response, next){
-    SignUp.findByIdAndDelete(request.body.id)
-        .then(function(signup){
-            OpenMic.create({
-                date: signup.date,
-                time: signup.time,
-                name: signup.name,
-                act: signup.description
-            });
-        })
-        .catch(error => next(error));
+// make a signup object
+module.exports.create = function (request, response, next) {
+  SignUp.create(request.body)
+    .then(data => response.status(201).send(data))
+    .catch(error => next(error));
 };
 
 // delete sign up object

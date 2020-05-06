@@ -11,3 +11,16 @@
     <%_ } -%>
 
 </ul>
+
+<h3>Sign Up for this Open Mic</h3>
+<p>Show us your stuff!</p>
+
+<form id="create" class="form">
+    <input type="hidden" id="date" name="date" value="<%= show[0].date %>">
+    <input type="text" name="name" placeholder="Name"
+        class="form-control form-control-lg font-weight-bold mb-1">
+    <textarea name="description" placeholder="Description" rows="3" class="form-control mb-1"></textarea>
+    <input type="hidden" id="approved" name="approved" value="<%= false %>">
+    <button type="submit" class="submit btn btn-warning">Submit</button>
+
+</form>

@@ -29,7 +29,7 @@ router.get('/suggestions/thanks', suggestions.thanks)
 router.post('/suggestions', suggestions.create);
 router.post('/signups', signups.create);
 router.post('/shows', authorize, shows.create);
-router.post('/open_mics', authorize, open_mics.create);
+router.post('/open_mics', open_mics.create);
 
 // delete requests
 router.delete('/suggestions/:id', authorize, suggestions.delete);
