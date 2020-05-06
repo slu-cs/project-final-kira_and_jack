@@ -22,14 +22,27 @@ module.exports.retrieve = function(request, response, next){
 
 // new show request
 module.exports.create = function (request, response, next) {
-    Shows.create(request.body)
+    Shows.create({
+            date: new Date(request.params.date + request.params.time),
+            performers: request.params.performers,
+            description: request.params.description,
+            link: request.params.link,
+            image: request.params.image
+        })
       .then(data => response.status(201).send(data))
       .catch(error => next(error));
   };
 
 // edit show
 module.exports.update = function (request, response, next) {
-    Shows.findByIdAndUpdate(request.params.id, request.body)
+    console.log(request.body.date + 'T' + request.body.time + ':00')
+    Shows.findByIdAndUpdate(request.params.id, {
+            date: Date.parse(request.body.date + 'T' + request.body.time + ':00'),
+            performers: request.body.performers,
+            description: request.body.description,
+            link: request.body.link,
+            image: request.body.image
+        })
         .then(data => response.status(201).send(data))
         .catch(error => next(error));
   };

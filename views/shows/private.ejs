@@ -25,13 +25,15 @@
                     <tr>
                         <th class="border-0">Performer</th>
                         <th class="border-0">Date</th>
+                        <th class="border-0">Time</th>
                     </tr>
                 </thead>
                 <tbody>
                     <%_ for (const show of shows) { -%>
                     <tr id=<%=show.id-%>>
                         <td><%= show.performers -%></td>
-                        <td><%= new Date(show.date).toString().slice(0,15)-%></td>
+                        <td><%= show.date.toString().slice(0,15)-%></td>
+                        <td><%=show.date.toTimeString().slice(0, 5)-%></td>
                         <td><a href='/shows/<%=show.id-%>' class="edit btn btn-warning">Edit</a></td>
                         <td><button class="delete btn btn-warning">Delete</button></td>
                     </tr>
