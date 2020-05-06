@@ -1,7 +1,7 @@
 const Shows = require('../models/shows.js')
 
 module.exports.index = function(request, response, next) {
-    Shows.find().
+    Shows.find()
         .then(shows => response.render('shows/index', {shows: shows}))
         .catch(error => next(error));
 };
