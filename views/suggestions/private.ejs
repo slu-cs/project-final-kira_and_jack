@@ -12,7 +12,7 @@
         <tr id=<%=suggestion.id-%>>
             <td><%= suggestion.name -%></td>
             <td><%= suggestion.description -%></td>
-            <td><%= suggestion.date -%></td>
+            <td><%= suggestion.date.toString().slice(0,15) -%></td>
             <td><button class="delete btn btn-warning">Delete</button></td>
         </tr>
       <%_ } -%>
