@@ -1,11 +1,9 @@
 const Shows = require('../models/shows.js')
 
 module.exports.index = function(request, response, next) {
-  const order = request.query.sort || 'date'; // Default to sort by date
-
-  Shows.find().sort(order)
-    .then(shows => response.render('shows/index', {shows: shows, order: order}))
-    .catch(error => next(error));
+    Shows.find().
+        .then(shows => response.render('shows/index', {shows: shows}))
+        .catch(error => next(error));
 };
 
 module.exports.retrieve = function(request, response, next){
