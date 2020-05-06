@@ -21,7 +21,7 @@ module.exports.create = function (request, response, next) {
 
 //delete signup
 module.exports.delete = function(request, response, next){
-    SignUp.findByIdAndDelete(request.body.id)
+    SignUp.findByIdAndDelete(request.params.id)
         .then(suggestion => suggestion ? response.status(200).end() : next())
         .catch(error => next(error));
 };

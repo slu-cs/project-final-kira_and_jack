@@ -32,10 +32,10 @@ router.post('/shows', authorize, shows.create);
 router.post('/open_mics', authorize, open_mics.create);
 
 // delete requests
-router.delete('/suggestions', authorize, suggestions.delete);
-router.delete('/shows', authorize, shows.delete);
-router.delete('/signups', authorize, signups.delete);
-router.delete('/open_mics', authorize, open_mics.delete);
+router.delete('/suggestions/:id', authorize, suggestions.delete);
+router.delete('/shows/:id', authorize, shows.delete);
+router.delete('/signups/:id', authorize, signups.delete);
+router.delete('/open_mics/:id', authorize, open_mics.delete);
 
 // edit show
 router.put('/shows/:id', authorize, shows.update);

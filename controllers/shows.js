@@ -39,7 +39,7 @@ module.exports.update = function (request, response, next) {
 
 // delete
 module.exports.delete = function(request, response, next){
-    Shows.findByIdAndDelete(request.body.id)
+    Shows.findByIdAndDelete(request.params.id)
          .then(suggestion => suggestion ? response.status(200).end() : next())
          .catch(error => next(error));
 };
