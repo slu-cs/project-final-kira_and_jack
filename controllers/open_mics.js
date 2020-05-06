@@ -10,7 +10,7 @@ module.exports.index = function(request, response, next) {
 
 module.exports.retrieve = function(request, response, next) {
   const queries = [
-    OpenMic.find().where('date').equals(request.params.date),
+    SignUp.find().where('date').equals(request.params.date),
     OpenMic.distinct('date')
   ];
 

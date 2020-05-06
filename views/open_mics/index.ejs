@@ -8,12 +8,12 @@
           <div class="col-auto p-3 border-right">
             <nav class="nav nav-pills flex-column">
               <%_ for (const event of events) { -%>
-              <%_ const status = (event === show[0].date) ? 'active bg-warning text-dark' : 'inactive'; -%>
+                <%_console.log(event, show)-%>
+              <%_ const status = (event.date === show[0].date) ? 'active bg-warning text-dark' : 'inactive'; -%>
               <a href="/open_mics/<%= event -%>"
-                class="nav-item nav-link text-dark <%= status -%>"><%= new Date(event).toString().slice(4,15) -%></a>
+                class="nav-item nav-link text-dark <%= status -%>"><%= event -%></a>
               <%_ } -%>
 
-              <a href="/signups" class="nav-item nav-link text-dark">Sign-Ups</a>
             </nav>
           </div>
           <div class="col">

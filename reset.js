@@ -8,7 +8,7 @@ const SignUp = require('./models/signups')
 // Connect to the database
 connect();
 
-// Model a collection of courses
+// Model a collection of shows
 const shows = [
   new Show({date: '04-09-20', time: '10:00 PM' , performers: 'Mr. Charlie and Blues for Breakfast', description: 'Blues For Breakfast is now entering its 3rd decade of entertaining people in northern New England and New York. Started back in 1991 to play a Discover Jazz Festival blues jam, they have evolved into the Champlain Valleys Do It All band. Though focused mostly on Grateful Americana, the group loves to mix classic rock, reggae, Motown and originals into their shows if the room calls for it.', link: 'http://www.bluesforbreakfast.com/', image:'https://2ab9pu2w8o9xpg6w26xnz04d-wpengine.netdna-ssl.com/wp-content/uploads/legacy-band-images/blues-for-breakfast.jpg'}),
   new Show({date: '04-16-20', time: '10:00 PM' , performers: 'Vundabar', description: 'Vundabar is an American indie rock band from Boston, Massachusetts. Vundabar formed when Brandon Hagen and Drew McDonald were in high school. Vundabar released their first full-length album in 2013 titled Antics. In 2015, Vundabar released their second full-length album titled Gawk.', link: 'https://vundabar.bandcamp.com/', image:"https://miro.medium.com/max/5120/1*1eOPonPEPeEio_nqHLxNOA.jpeg"}),
@@ -18,23 +18,28 @@ const shows = [
 
 ];
 
-// Model a collection of sections
+// Model a collection of open mics 
 const open_mics = [
-  new OpenMic({date: '04-22-20', time:'10:00 PM', name: 'Natalie Pontikes', act: 'Singer with violin'}),
-  new OpenMic({date: '04-22-20',time:'10:00 PM', name: 'Riley Doyle', act: 'Singer with guitar'}),
-  new OpenMic({date:'04-22-20',time:'10:00 PM', name: 'The Twelve Steps', act: '3 Piece Rock Band'}),
-  new OpenMic({date:'04-22-20',time:'10:00 PM', name: 'HUAC', act: 'Rock Band with Keys'}),
-  new OpenMic({date:'05-06-20',time:'10:00 PM', name: 'Jessie Meyer', act: 'Singer with guitar'}),
-  new OpenMic({date:'05-06-20',time:'10:00 PM', name: 'Will Von Mehren', act: 'Spoken word'}),
-
+  new OpenMic({date: new Date('Apr 22 2020 10PM')}),
+  new OpenMic({date: new Date('May 06 2020 10PM')}),
 ];
 
-const signups = []
+// Model a collection of sign ups
+const sign_ups = [
+  new SignUp({date: new Date('Apr 22 2020 10PM'), name: 'Natalie Pontikes', description: 'Singer with violin', approved: true}),
+  new SignUp({date: new Date('Apr 22 2020 10PM'), name: 'Riley Doyle', description: 'Singer with guitar', approved: true}),
+  new SignUp({date: new Date('Apr 22 2020 10PM'), name: 'The Twelve Steps', description: '3 Piece Rock Band', approved: true}),
+  new SignUp({date: new Date('Apr 22 2020 10PM'), name: 'HUAC', description: 'Rock Band with Keys', approved: false}),
+  new SignUp({date: new Date('May 06 2020 10PM'), name: 'Jessie Meyer', description: 'Singer with guitar', approved: true}),
+  new SignUp({date: new Date('May 06 2020 10PM'), name: 'Will Von Mehren', description: 'Spoken word', approved: true})
+];
+
 
 // Reset the database
 mongoose.connection.dropDatabase()
   .then(() => Promise.all(shows.map(show => show.save())))
   .then(() => Promise.all(open_mics.map(open_mic => open_mic.save())))
+  .then(() => Promise.all(sign_ups.map(sign_up => sign_up.save())))
   .then(() => mongoose.connection.close())
   .then(() => console.log('Database is ready.'))
   .catch(error => console.error(error.stack));
