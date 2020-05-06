@@ -71,6 +71,43 @@ app.use(function(request, response) {
   response.status(404).end();
 });
 
+// Handle duplicate ID errors
+app.use(function(error, request, response, next) {
+  if (error.name === 'MongoError' && error.code === 11000) {
+    console.log('Validation error: Duplicate ID');
+    response.status(400).send('Duplicate ID');
+  } else {
+    next(error);
+  }
+});
+
+// Handle cast errors
+app.use(function(error, request, response, next) {
+  if (error.name === 'CastError') {
+    console.log('Validation error:', error.message);
+    const start = error.message.indexOf('path') + 6;
+    const stop = error.message.length - 1;
+    const field = error.message.substring(start, stop);
+    response.status(400).send(`Invalid ${field}`);
+  } else {
+    next(error);
+  }
+});
+
+// Handle validation errors
+app.use(function(error, request, response, next) {
+  if (error.name === 'ValidationError') {
+    const messages = [];
+    for (const field in error.errors) {
+      console.log('Validation error:', error.errors[field].message);
+      messages.push(error.errors[field].message);
+    }
+    response.status(400).send(messages.join('\n'));
+  } else {
+    next(error);
+  }
+});
+
 // Handle other errors
 app.use(function(error, request, response) {
   console.error(error.stack);

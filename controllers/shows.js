@@ -42,7 +42,7 @@ module.exports.update = function (request, response, next) {
             description: request.body.description,
             link: request.body.link,
             image: request.body.image
-        })
+        }, {runValidators:true})
         .then(data => response.status(201).send(data))
         .catch(error => next(error));
   };

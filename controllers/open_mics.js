@@ -40,7 +40,7 @@ module.exports.delete = function(request, response, next){
 
 // update signup object
 module.exports.update= function(request, response, next){
-  SignUp.findByIdAndUpdate(request.params.id, {approved : request.body.approved})
+  SignUp.findByIdAndUpdate(request.params.id, {approved : request.body.approved}, {runValidators:true})
       .catch(error => next(error));
 };
 

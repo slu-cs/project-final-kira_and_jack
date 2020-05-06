@@ -26,9 +26,11 @@ function ShowMessage(data)
    $('.delete').on('click', function(event){
      event.preventDefault();
      const id = $(this).closest('li').attr('id');
-     $.ajax({method: 'delete', url: `/open_mics/${id}`})
-         .done(window.location.reload())
-         .fail(error => alert(error.responseText));
+     if (confirm('Are you sure you want to delete this Open Mic sign up?')) {
+      $.ajax({method: 'delete', url: `/open_mics/${id}`})
+          .done(window.location.reload())
+          .fail(error => alert(error.responseText));
+     }
    });
 
    $('.submit').on('click', function(event) {
