@@ -15,5 +15,10 @@ Show.methods.date_string = function(){
      return this.date.toLocaleDateString("en-US", options);
   };
 
+Show.methods.date_string_internal = function(){
+    const options = {year:'long', month: 'numeric'};
+    return this.date.getFullYear() + '-' + (this.date.getMonth() + 101 + '').slice(1,3) + '-' + (this.date.getDate() + 100 + '').slice(1,3) + 'T' + this.date.toTimeString().slice(0,5);
+};
+
 // Export the model
 module.exports = mongoose.model('show', Show);

@@ -11,7 +11,7 @@ module.exports.index = function(request, response, next) {
 module.exports.retrieve = function(request, response, next) {
   const queries = [
     SignUp.find().where('date').equals(request.params.date),
-    OpenMic.distinct('date'), 
+    OpenMic.distinct('date'),
     OpenMic.find().where('date').equals(request.params.date),
   ];
 
@@ -59,8 +59,3 @@ module.exports.createshow = function (request, response, next) {
   .then(data => response.status(201).send(data))
   .catch(error => next(error));
 };
-
-
-
-
-
