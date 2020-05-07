@@ -38,6 +38,12 @@ module.exports.delete = function(request, response, next){
       .catch(error => next(error));
 };
 
+module.exports.deleteshow = function(request, response, next){
+  OpenMic.findByIdAndDelete(request.params.id)
+      .then(suggestion => suggestion ? response.status(200).end() : next())
+      .catch(error => next(error));
+};
+
 
 // update signup object
 module.exports.update= function(request, response, next){

@@ -36,6 +36,16 @@
     }
   });
 
+  $('.delete-event').on('click', function(event){
+     const tr = $(this.closest('tr'));
+     const id = tr.attr('id');
+     if (confirm('Are you sure you want to delete this Open Mic event?')) {
+     $.ajax({method: 'delete', url: `/open_mics/remove/${id}`})
+         .done( window.location = "/open_mics")
+         .fail(error => alert(error.responseText));
+     }
+   });
+
   $('.openmic-submit').on('click', function (event) {
     const form = $(this).closest('form');
     event.preventDefault();

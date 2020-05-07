@@ -10,34 +10,58 @@
   
   <%_ for (const performer of show) { -%>
     <% if(performer.approved){ %>
-      
         <li id='<%= performer.id-%>' class="list-group-item"><%= performer.name -%> - <%= performer.description -%> <button
           class="remove btn btn-warning float-right">Remove from Lineup</button></li>
-
     <% } else{ %>
       <li id='<%= performer.id-%>' class="list-group-item"><%= performer.name -%> - <%= performer.description -%> <button
         class="delete btn btn-warning float-right ml-2">Delete</button><button
         class="approve btn btn-warning float-right">Approve</button></li>  
-
   <% } %>
   <%_ } -%>
 </ul>
 
-<div id="openmic-form" class="text-center">
-    <h3>Add Open Mic</h3>
-    <form id="create" class="form">
-        <input type="text" name="date" placeholder="YYYY-MM-DD"
-            class="form-control form-control-lg font-weight-bold mb-1">
-        <input type="text" name="time" placeholder="HH:mm"
-            class="form-control form-control-lg font-weight-bold mb-1">
-        <div class="text-center">
-            <button class="openmic-submit btn btn-warning">Submit</button>
+    <div class="container" id="openmic-form">
+        <div class="row">
+            <div class="col-sm border m-3 p-3">
+           
+                <h3 class="text-center">Add Open Mic</h3>
+                <form id="create" class="form">
+                    <input type="text" name="date" placeholder="YYYY-MM-DD"
+                        class="form-control form-control-lg font-weight-bold mb-1">
+                    <input type="text" name="time" placeholder="HH:mm"
+                        class="form-control form-control-lg font-weight-bold mb-1">
+                    <div class="text-center">
+                        <button class="openmic-submit btn btn-warning">Submit</button>
+                    </div>
+                </form>
+            </div>
+       
+            <div class="col-sm border m-3 p-3">
+            <table class="table mb-5">
+                <h3 class="text-center">Delete Existing Show</h3>
+                <thead>
+                    <tr>
+                        <th class="border-0">Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <%_ for (const event of events) { -%>
+                    <tr id=<%=date[0].id-%>>
+                        <td><%= event.toString().slice(0,16)-%> -<%=   event.toString().slice(16,21) -%></td>
+                        <td><button class="delete-event btn btn-warning">Delete</button></td>
+                    </tr>
+                    <%_ } -%>
+                </tbody>
+            </table>
+            </div>
         </div>
-    </form>
-  </div>
+    </div>
+
+
+
 
 <div class="text-center mt-3 mb-3">
-    <button id="addopenmic" class="btn btn-warning">Add New Open Mic</button>
+    <button id="addopenmic" class="btn btn-warning">Add/Delete Open Mic</button>
 </div>
 <div class="text-center mt-3 mb-3">
     <button id="show-edit-lineup" class="btn btn-warning">Return to Line Up</button>

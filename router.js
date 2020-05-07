@@ -33,6 +33,7 @@ router.post('/open_mics/addnew', authorize, open_mics.createshow);
 router.delete('/suggestions/:id', authorize, suggestions.delete);
 router.delete('/shows/:id', authorize, shows.delete);
 router.delete('/open_mics/:id', authorize, open_mics.delete);
+router.delete('/open_mics/remove/:id', authorize, open_mics.deleteshow);
 
 // edit show
 router.put('/shows/:id', authorize, shows.update);
