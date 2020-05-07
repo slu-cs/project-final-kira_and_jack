@@ -1,7 +1,11 @@
 
   <ul class="list-group" id="lineup">
     <li class="list-group-item text-center" style="background-color:rgb(78, 8, 87);">
-      <h4 class="text-light">Line Up for <%= show[0].date.toString().slice(4,15) -%></h4>
+      <% if(show[0]){ %>
+        <h4 class="text-light">Line Up for <%= date[0].date.toString().slice(4,15) -%></h4>
+      <% } else{ %>
+        <h4 class="text-light">There is currently no lineup for this show. Check back later</h4>
+      <% }-%>
     </li>
     <%_ for (const performer of show) { -%>
       <% if(performer.approved){ %>
@@ -11,7 +15,7 @@
   </ul>
 
 <div id="signupform" class="text-center">
-  <h3>Sign Up Form for <%= show[0].date.toString().slice(4,15) -%></h3>
+  <h3>Sign Up Form for <%= date[0].date.toString().slice(4,15) -%></h3>
 
   <p>Do you love to play groovy jazz music? Do you want to show off your very best rendition of 
     Jack Johnson's Banana Pancakes? Can you tap dance like your life depends on it?</p>
@@ -19,7 +23,7 @@
     below and show us your stuff!</p>
 
   <form id="create" class="form p-4">
-      <input type="hidden" id="date" name="date" value="<%= show[0].date %>">
+      <input type="hidden" id="date" name="date" value="<%= date[0].date %>">
       <input type="text" name="name" placeholder="Name"
           class="form-control form-control-lg font-weight-bold mb-1 ">
       <textarea name="description" placeholder="Singing? Dancing? Let us know what you plan to do!" rows="3" class="form-control mb-1"></textarea>

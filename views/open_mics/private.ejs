@@ -1,8 +1,13 @@
 
 <ul class="list-group" id="edit-lineup">
-  <li class="list-group-item text-center"  style="background-color:rgb(78, 8, 87);">
-      <h4 class="text-light">Line Up for <%= show[0].date.toString().slice(4,15) -%></h4>
-  </li>
+    <li class="list-group-item text-center" style="background-color:rgb(78, 8, 87);">
+    <% if(show[0]){ %>
+      <h4 class="text-light">Sign Ups for <%= date[0].date.toString().slice(4,15) -%></h4>
+    <% } else{ %>
+      <h4 class="text-light">There is currently no one signed up for this show.</h4>
+    <% }-%>
+    </li>
+  
   <%_ for (const performer of show) { -%>
     <% if(performer.approved){ %>
       
@@ -20,13 +25,14 @@
 
 <div id="openmic-form" class="text-center">
     <h3>Add Open Mic</h3>
-    <form id="create" class="form p-4">
-
-        <input type="text" name="name" placeholder="Name"
-            class="form-control form-control-lg font-weight-bold mb-1 ">
-        <textarea name="description" placeholder="Singing? Dancing? Let us know what you plan to do!" rows="3" class="form-control mb-1"></textarea>
-        <button type="submit" class="submit btn btn-warning">Submit</button>
-  
+    <form id="create" class="form">
+        <input type="text" name="date" placeholder="YYYY-MM-DD"
+            class="form-control form-control-lg font-weight-bold mb-1">
+        <input type="text" name="time" placeholder="HH:mm"
+            class="form-control form-control-lg font-weight-bold mb-1">
+        <div class="text-center">
+            <button class="openmic-submit btn btn-warning">Submit</button>
+        </div>
     </form>
   </div>
 
