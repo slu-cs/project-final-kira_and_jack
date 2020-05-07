@@ -10,9 +10,15 @@
   $('#create').on('submit', function(event) {
     const form = $(this);
     event.preventDefault();
-    $.ajax({method: 'post', url: '/shows', data: form.serialize()})
-      .done(data => ShowMessage(form))
-      .fail(error => alert(error.responseText));
+    const date = form.children()[0].value;
+    const time = form.children()[1].value;
+    if (time === '' || date === ''){
+        alert('Date and time are required!')
+    } else {
+        $.ajax({method: 'post', url: '/shows', data: form.serialize()})
+          .done(data => ShowMessage(form))
+          .fail(error => alert(error.responseText));
+      }
   });
 
   $('.delete').on('click', function(event){
