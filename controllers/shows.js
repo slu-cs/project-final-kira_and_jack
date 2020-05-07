@@ -24,7 +24,7 @@ module.exports.retrieve = function(request, response, next){
 // new show request
 module.exports.create = function (request, response, next) {
     Shows.create({
-            date: Date.parse(request.body.date + 'T' + request.body.time + ':00'),
+            date: Date.parse(request.body.date),
             performers: request.body.performers,
             description: request.body.description,
             link: request.body.link,
@@ -37,7 +37,7 @@ module.exports.create = function (request, response, next) {
 // edit show
 module.exports.update = function (request, response, next) {
     Shows.findByIdAndUpdate(request.params.id, {
-            date: Date.parse(request.body.date + 'T' + request.body.time + ':00'),
+            date: Date.parse(request.body.date),
             performers: request.body.performers,
             description: request.body.description,
             link: request.body.link,
