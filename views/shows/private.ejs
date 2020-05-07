@@ -1,7 +1,7 @@
 <main class="p-3">
     <div class="container">
         <div class="row">
-            <div class="col-sm ">
+            <div class="col-md-4">
             <h3 class="text-center">Add New Show</h3>
             <form id="create" class="form">
                 <input type="text" name="date" placeholder="YYYY-MM-DD"
@@ -11,14 +11,14 @@
                 <input type="text" name="performers" placeholder="Performers"
                     class="form-control form-control-lg font-weight-bold mb-1">
                 <textarea name="description" placeholder="Description" rows="3" class="form-control mb-1"></textarea>
-                <textarea name="link" placeholder="Site Link" rows="3" class="form-control mb-1"></textarea>
-                <textarea name="image" placeholder="Image URL" rows="3" class="form-control mb-1"></textarea>
-                <div class="text-center">
+                <input type='text' name="link" placeholder="Site Link" rows="3" class="form-control mb-1">
+                <input type='text' name="image" placeholder="Image URL" rows="3" class="form-control mb-1">
+                <div class="text-center pt-2">
                     <button class="btn btn-warning">Submit</button>
                 </div>
             </form>
             </div>
-            <div class="col-sm">
+            <div class="col-md-8">
             <table class="table mb-5">
                 <h3 class="text-center">Edit Existing Show</h3>
                 <thead>
