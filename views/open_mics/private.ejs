@@ -7,17 +7,17 @@
       <h4 class="text-light">There is currently no one signed up for this show.</h4>
     <% }-%>
     </li>
-  
+
   <%_ for (const performer of show) { -%>
     <% if(performer.approved){ %>
-      
+
         <li id='<%= performer.id-%>' class="list-group-item"><%= performer.name -%> - <%= performer.description -%> <button
           class="remove btn btn-warning float-right">Remove from Lineup</button></li>
 
     <% } else{ %>
       <li id='<%= performer.id-%>' class="list-group-item"><%= performer.name -%> - <%= performer.description -%> <button
         class="delete btn btn-warning float-right ml-2">Delete</button><button
-        class="approve btn btn-warning float-right">Approve</button></li>  
+        class="approve btn btn-warning float-right">Approve</button></li>
 
   <% } %>
   <%_ } -%>
@@ -26,7 +26,7 @@
 <div id="openmic-form" class="text-center">
     <h3>Add Open Mic</h3>
     <form id="create" class="form">
-        <input type="text" name="date" placeholder="YYYY-MM-DD"
+        <input type="datetime-local" name="date"
             class="form-control form-control-lg font-weight-bold mb-1">
         <input type="text" name="time" placeholder="HH:mm"
             class="form-control form-control-lg font-weight-bold mb-1">
