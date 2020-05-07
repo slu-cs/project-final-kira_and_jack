@@ -20,18 +20,18 @@ const shows = [
 
 // Model a collection of open mics
 const open_mics = [
-  new OpenMic({date: new Date('2020-04-22T22:00:00')}),
-  new OpenMic({date: new Date('2020-05-06T22:00:00')}),
+  new OpenMic({date: new Date('2020-04-22T10:00:00')}),
+  new OpenMic({date: new Date('2020-05-06T10:00:00')}),
 ];
 
 // Model a collection of sign ups
 const sign_ups = [
-  new SignUp({date: new Date('2020-04-22T22:00:00'), name: 'Natalie Pontikes', description: 'Singer with violin', approved: true}),
-  new SignUp({date: new Date('2020-04-22T22:00:00'), name: 'Riley Doyle', description: 'Singer with guitar', approved: true}),
-  new SignUp({date: new Date('2020-04-22T22:00:00'), name: 'The Twelve Steps', description: '3 Piece Rock Band', approved: true}),
-  new SignUp({date: new Date('2020-04-22T22:00:00'), name: 'HUAC', description: 'Rock Band with Keys', approved: false}),
-  new SignUp({date: new Date('2020-05-06T22:00:00'), name: 'Jessie Meyer', description: 'Singer with guitar', approved: true}),
-  new SignUp({date: new Date('2020-05-06T22:00:00'), name: 'Will Von Mehren', description: 'Spoken word', approved: true})
+  new SignUp({date: new Date('2020-04-22T10:00:00'), name: 'Natalie Pontikes', description: 'Singer with violin', approved: true}),
+  new SignUp({date: new Date('2020-04-22T10:00:00'), name: 'Riley Doyle', description: 'Singer with guitar', approved: true}),
+  new SignUp({date: new Date('2020-04-22T10:00:00'), name: 'The Twelve Steps', description: '3 Piece Rock Band', approved: true}),
+  new SignUp({date: new Date('2020-04-22T10:00:00'), name: 'HUAC', description: 'Rock Band with Keys', approved: false}),
+  new SignUp({date: new Date('2020-05-06T10:00:00'), name: 'Jessie Meyer', description: 'Singer with guitar', approved: true}),
+  new SignUp({date: new Date('2020-05-06T10:00:00'), name: 'Will Von Mehren', description: 'Spoken word', approved: true})
 ];
 
 

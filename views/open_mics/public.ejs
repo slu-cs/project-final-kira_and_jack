@@ -1,10 +1,9 @@
-
-  <ul class="list-group" id="lineup">
+<ul class="list-group" id="lineup">
     <li class="list-group-item text-center" style="background-color:rgb(78, 8, 87);">
       <% if(show[0]){ %>
         <h4 class="text-light">Line Up for <%= date[0].date.toString().slice(4,15) -%></h4>
       <% } else{ %>
-        <h4 class="text-light">There is currently no lineup for this show. Check back later</h4>
+        <h4 class="text-light">There is currently no lineup for this show. Check back later!</h4>
       <% }-%>
     </li>
     <%_ for (const performer of show) { -%>
@@ -17,7 +16,7 @@
 <div id="signupform" class="text-center">
   <h3>Sign Up Form for <%= date[0].date.toString().slice(4,15) -%></h3>
 
-  <p>Do you love to play groovy jazz music? Do you want to show off your very best rendition of 
+  <p>Do you love to play groovy jazz music? Do you want to show off your very best rendition of
     Jack Johnson's Banana Pancakes? Can you tap dance like your life depends on it?</p>
   <p>Whatever you got, we want it! Sign up
     below and show us your stuff!</p>
