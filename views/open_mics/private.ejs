@@ -2,7 +2,7 @@
 <ul class="list-group" id="edit-lineup">
     <li class="list-group-item text-center" style="background-color:rgb(78, 8, 87);">
     <% if(show[0]){ %>
-      <h4 class="text-light">Sign Ups for <%= date[0].date.toString().slice(4,15) -%></h4>
+      <h4 class="text-light">Sign Ups for <%= date[0].date.toString().slice(4,15) -%> at <%= date[0].date.toString().slice(16,21) -%></h4>
     <% } else{ %>
       <h4 class="text-light">There is currently no one signed up for this show.</h4>
     <% }-%>

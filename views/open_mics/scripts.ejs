@@ -56,10 +56,16 @@
 
   $('.submit').on('click', function (event) {
     const form = $(this).closest('form');
+    const name = form.children()[1].value;
+    const description = form.children()[2].value;
     event.preventDefault();
+    if (name === '' || description === ''){
+        alert('Name and description are required!')
+    }else{
     $.ajax({ method: 'post', url: "/open_mics", data: form.serialize() })
       .done(data => ShowSignUpMessage(data))
       .fail(error => alert(error.responseText));
+    }
   });
 
   $("#signupform").hide();

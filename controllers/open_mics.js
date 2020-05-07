@@ -42,6 +42,7 @@ module.exports.deleteshow = function(request, response, next){
   OpenMic.findByIdAndDelete(request.params.id)
       .then(suggestion => suggestion ? response.status(200).end() : next())
       .catch(error => next(error));
+  
 };
 
 
