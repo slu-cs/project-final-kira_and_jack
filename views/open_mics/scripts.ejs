@@ -1,56 +1,67 @@
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script>
 
-function ShowMessage(data)
-    {
-      alert('Thanks for Signing Up! Once we have approved your request, you will appear on the lineup!');
-      window.location.replace(`/open_mics/${data.date}`)
+  function ShowSignUpMessage(data) {
+    alert('Thanks for Signing Up! Once we have approved your request, you will appear on the lineup!');
+    window.location.replace(`/open_mics/${data.date}`)
+  }
+  function ShowOpenMicMessage(data) {
+    alert('Successfully created an open mic!');
+    window.location.reload()
+  }
+
+  $('.remove').on('click', function (event) {
+    event.preventDefault();
+    const id = $(this).closest('li').attr('id');
+    $.ajax({ method: 'put', url: `/open_mics/${id}`, data: { approved: false } })
+      .done(window.location.reload())
+      .fail(error => alert(error.responseText));
+  });
+
+  $('.approve').on('click', function (event) {
+    event.preventDefault();
+    const id = $(this).closest('li').attr('id');
+    $.ajax({ method: 'put', url: `/open_mics/${id}`, data: { approved: true } })
+      .done(window.location.reload())
+      .fail(error => alert(error.responseText));
+  });
+
+  $('.delete').on('click', function (event) {
+    event.preventDefault();
+    const id = $(this).closest('li').attr('id');
+    if (confirm('Are you sure you want to delete this Open Mic sign up?')) {
+      $.ajax({ method: 'delete', url: `/open_mics/${id}` })
+        .done(window.location.reload())
+        .fail(error => alert(error.responseText));
     }
+  });
 
-  $('.remove').on('click', function(event){
-     event.preventDefault();
-     const id = $(this).closest('li').attr('id');
-     $.ajax({method: 'put', url: `/open_mics/${id}`,data: {approved: false}})
-         .done(window.location.reload())
-         .fail(error => alert(error.responseText));
-   });
-
-   $('.approve').on('click', function(event){
-     event.preventDefault();
-     const id = $(this).closest('li').attr('id');
-     $.ajax({method: 'put', url: `/open_mics/${id}`, data: {approved: true}})
-         .done(window.location.reload())
-         .fail(error => alert(error.responseText));
-   });
-
-   $('.delete').on('click', function(event){
-     event.preventDefault();
-     const id = $(this).closest('li').attr('id');
-     if (confirm('Are you sure you want to delete this Open Mic sign up?')) {
-      $.ajax({method: 'delete', url: `/open_mics/${id}`})
-          .done(window.location.reload())
-          .fail(error => alert(error.responseText));
-     }
-   });
-
-   $('.submit').on('click', function(event) {
+  $('.openmic-submit').on('click', function (event) {
     const form = $(this).closest('form');
     event.preventDefault();
-    $.ajax({method: 'post', url: "/open_mics", data: form.serialize()})
-      .done(data => ShowMessage(data))
+    $.ajax({ method: 'post', url: '/open_mics/addnew', data: form.serialize() })
+      .done(data => ShowOpenMicMessage(form))
+      .fail(error => alert(error.responseText));
+  });
+
+  $('.submit').on('click', function (event) {
+    const form = $(this).closest('form');
+    event.preventDefault();
+    $.ajax({ method: 'post', url: "/open_mics", data: form.serialize() })
+      .done(data => ShowSignUpMessage(data))
       .fail(error => alert(error.responseText));
   });
 
   $("#signupform").hide();
   $("#showlineup").hide();
 
-  $('#showform').click(function(){
+  $('#showform').click(function () {
     $('#showform,#showlineup').toggle();
     $('#signupform').show()
     $('#lineup').hide();
   });
 
-  $('#showlineup').click(function(){
+  $('#showlineup').click(function () {
     $('#showform,#showlineup').toggle();
     $('#signupform').hide()
     $('#lineup').show();
@@ -59,19 +70,19 @@ function ShowMessage(data)
   $("#openmic-form").hide();
   $("#show-edit-lineup").hide();
 
-  $('#addopenmic').click(function(){
+  $('#addopenmic').click(function () {
     $('#addopenmic,#show-edit-lineup').toggle();
     $('#openmic-form').show()
     $('#edit-lineup').hide()
   });
 
-  $('#show-edit-lineup').click(function(){
+  $('#show-edit-lineup').click(function () {
     $('#addopenmic,#show-edit-lineup').toggle();
     $('#openmic-form').hide()
     $('#edit-lineup').show();
   });
 
-  
+
 
 
 

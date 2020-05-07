@@ -11,12 +11,13 @@ module.exports.index = function(request, response, next) {
 module.exports.retrieve = function(request, response, next) {
   const queries = [
     SignUp.find().where('date').equals(request.params.date),
-    OpenMic.distinct('date')
+    OpenMic.distinct('date'), 
+    OpenMic.find().where('date').equals(request.params.date),
   ];
 
-  Promise.all(queries).then(function([show, events]) {
-    if (show.length > 0) {
-      response.render('open_mics/index', {show: show, events: events});
+  Promise.all(queries).then(function([show, events,date]) {
+    if (show.length >= 0) {
+      response.render('open_mics/index', {show: show, events:events, date: date});
     } else {
       next();
     }
@@ -43,6 +44,15 @@ module.exports.update= function(request, response, next){
   SignUp.findByIdAndUpdate(request.params.id, {approved : request.body.approved}, {runValidators:true})
       .catch(error => next(error));
 };
+
+module.exports.createshow = function (request, response, next) {
+  OpenMic.create({
+      date: Date.parse(request.body.date + 'T' + request.body.time + ':00'),
+  })
+  .then(data => response.status(201).send(data))
+  .catch(error => next(error));
+};
+
 
 
 
