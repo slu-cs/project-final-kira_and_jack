@@ -7,14 +7,19 @@
       <div class="card w-100 m-3 p-3 text-center" style="margin:0 auto">
         <div class="card-body  row">
         <div class="col-sm-6">
-            <img class="w-75" src="<%=show.image-%>" alt="Band Image">
+            <% if(show.image){ %>
+              <img class="w-75" src="<%=show.image-%>" alt="Band Image">
+            <% }-%>
         </div>
         <div class="col-sm-6">
           <h4 class="card-title"><%= show.performers -%></h4>
           <h6 class="card-title"><%= show.date_string()-%> </h6>
           <h6 class="card-title"><%= show.time-%> </h6>
           <p class="card-text"><%= show.description-%></p>
-          <a href="<%= show.link-%>" target="_blank" class="btn btn-warning"><%= show.performers -%>'s Site</a>
+          <% if(show.link){ %>
+            <a href="<%= show.link-%>" target="_blank" class="btn btn-warning"><%= show.performers -%>'s Site</a>
+          <% }-%>
+          
         </div>
       </div>
       </div>

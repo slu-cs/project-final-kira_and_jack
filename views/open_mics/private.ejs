@@ -1,10 +1,6 @@
 <ul class="list-group" id="edit-lineup">
     <li class="list-group-item text-center" style="background-color:rgb(78, 8, 87);">
-    <% if(show[0]){ %>
-      <h4 class="text-light">Sign Ups for <%= date[0].date.toString().slice(4,15) -%> at <%= date[0].date.toString().slice(16,21) -%></h4>
-    <% } else{ %>
-      <h4 class="text-light">There is currently no one signed up for this show.</h4>
-    <% }-%>
+      <h4 class="text-light">Sign Ups for<%= date[0].date_string()-%></h4>
     </li>
 
   <%_ for (const performer of show) { -%>
@@ -25,7 +21,7 @@
 
                 <h3 class="text-center">Add Open Mic</h3>
                 <form id="create" class="form">
-                    <input type="datetime-local" name="date"
+                    <input type="datetime-local" name="date" id="date"
                         class="form-control form-control-lg font-weight-bold mb-1">
                     <div class="text-center">
                         <button class="openmic-submit btn btn-warning">Submit</button>
@@ -44,7 +40,7 @@
                 <tbody>
                     <%_ for (const event of events) { -%>
                     <tr id=<%=date[0].id-%>>
-                        <td><%= event.toString().slice(0,16)-%> -<%=   event.toString().slice(16,21) -%></td>
+                        <td><%= event.toString().slice(0,16)-%></td>
                         <td><button class="delete-event btn btn-warning">Delete</button></td>
                     </tr>
                     <%_ } -%>

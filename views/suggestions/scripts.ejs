@@ -2,10 +2,17 @@
 <script>
   $('#create').on('submit', function(event) {
     const form = $(this);
+    const act = form.children()[0].value;
+    const description =form.children()[1].value;
     event.preventDefault();
-    $.ajax({method: 'post', url: '/suggestions', data: form.serialize()})
+    if (act === '' || description === ''){
+      alert('Band name and description are required!')
+    }else{
+      $.ajax({method: 'post', url: '/suggestions', data: form.serialize()})
         .done(window.location.href = '/suggestions/thanks')
         .fail(error => alert(error.responseText));
+    }
+    
   });
   $('.delete').on('click', function(event){
      event.preventDefault();

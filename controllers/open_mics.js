@@ -53,8 +53,9 @@ module.exports.update= function(request, response, next){
 };
 
 module.exports.createshow = function (request, response, next) {
+  console.log(request.body.date)
   OpenMic.create({
-      date: Date.parse(request.body.date + 'T' + request.body.time + ':00'),
+      date: Date.parse(request.body.date),
   })
   .then(data => response.status(201).send(data))
   .catch(error => next(error));
